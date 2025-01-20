@@ -9,10 +9,10 @@ import { useDispatch, useSelector } from "react-redux"
 import {
   deleteSection,
   deleteSubSection,
-} from "../../../../../services/operations/courseDetailsAPI"
-import { setCourse } from "../../../../../slices/courseSlice"
-import ConfirmationModal from "../../../../Common/ConfirmationModal"
-import SubSectionModal from "./SubSectionModal"
+} from "../../../../../services/operations/courseDetailsAPI.js"
+import { setCourse } from "../../../../../slices/courseSlice.js"
+import ConfirmationModal from "../../../../Common/ConfirmationModal.jsx"
+import SubSectionModal from "./SubSectionModal.jsx"
 
 export default function NestedView({ handleChangeEditSectionName }) {
   const { course } = useSelector((state) => state.course)

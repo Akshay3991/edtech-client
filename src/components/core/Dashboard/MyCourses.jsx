@@ -3,9 +3,9 @@ import { VscAdd } from "react-icons/vsc"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { fetchInstructorCourses } from "../../../services/operations/courseDetailsAPI"
-import IconBtn from "../../Common/IconBtn"
-import CoursesTable from "./InstructorCourses/CoursesTable"
+import { fetchInstructorCourses } from "../../../services/operations/courseDetailsAPI.js"
+import IconBtn from "../../Common/IconBtn.jsx"
+import CoursesTable from "./InstructorCourses/CoursesTable.jsx"
 
 export default function MyCourses() {
   const { token } = useSelector((state) => state.auth)

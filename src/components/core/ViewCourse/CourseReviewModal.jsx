@@ -4,8 +4,8 @@ import { RxCross2 } from "react-icons/rx"
 import ReactStars from "react-rating-stars-component"
 import { useSelector } from "react-redux"
 
-import { createRating } from "../../../services/operations/courseDetailsAPI"
-import IconBtn from "../../Common/IconBtn"
+import { createRating } from "../../../services/operations/courseDetailsAPI.js"
+import IconBtn from "../../Common/IconBtn.jsx"
 
 export default function CourseReviewModal({ setReviewModal }) {
   const { user } = useSelector((state) => state.profile)

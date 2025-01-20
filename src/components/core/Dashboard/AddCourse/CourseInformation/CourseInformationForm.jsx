@@ -9,13 +9,13 @@ import {
   addCourseDetails,
   editCourseDetails,
   fetchCourseCategories,
-} from "../../../../../services/operations/courseDetailsAPI"
-import { setCourse, setStep } from "../../../../../slices/courseSlice"
-import { COURSE_STATUS } from "../../../../../utils/constants"
-import IconBtn from "../../../../Common/IconBtn"
-import Upload from "../Upload"
-import ChipInput from "./ChipInput"
-import RequirementsField from "./RequirementsField"
+} from "../../../../../services/operations/courseDetailsAPI.js"
+import { setCourse, setStep } from "../../../../../slices/courseSlice.js"
+import { COURSE_STATUS } from "../../../../../utils/constants.js"
+import IconBtn from "../../../../Common/IconBtn.jsx"
+import Upload from "../Upload.jsx"
+import ChipInput from "./ChipInput.jsx"
+import RequirementsField from "./RequirementsField.jsx"
 
 export default function CourseInformationForm() {
   const {

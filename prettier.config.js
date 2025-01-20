@@ -1,5 +1,5 @@
 /** @type {import('prettier').Config} */
-module.exports = {
+export const config = {
   endOfLine: "lf",
   semi: false,
   singleQuote: false,

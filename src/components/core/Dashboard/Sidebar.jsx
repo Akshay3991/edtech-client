@@ -3,10 +3,10 @@ import { VscSignOut } from "react-icons/vsc"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { sidebarLinks } from "../../../data/dashboard-links"
-import { logout } from "../../../services/operations/authAPI"
-import ConfirmationModal from "../../Common/ConfirmationModal"
-import SidebarLink from "./SidebarLink"
+import { sidebarLinks } from "../../../data/dashboard-links.js"
+import { logout } from "../../../services/operations/authAPI.js"
+import ConfirmationModal from "../../Common/ConfirmationModal.jsx"
+import SidebarLink from "./SidebarLink.jsx"
 
 export default function Sidebar() {
   const { user, loading: profileLoading } = useSelector(

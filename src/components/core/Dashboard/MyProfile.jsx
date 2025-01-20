@@ -2,8 +2,8 @@ import { RiEditBoxLine } from "react-icons/ri"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { formattedDate } from "../../../utils/dateFormatter"
-import IconBtn from "../../Common/IconBtn"
+import { formattedDate } from "../../../utils/dateFormatter.js"
+import IconBtn from "../../Common/IconBtn.jsx"
 
 export default function MyProfile() {
   const { user } = useSelector((state) => state.profile)

@@ -1,10 +1,10 @@
 import { toast } from "react-hot-toast"
 
 import rzpLogo from "../../assets/Logo/rzp_logo.png"
-import { resetCart } from "../../slices/cartSlice"
-import { setPaymentLoading } from "../../slices/courseSlice"
-import { apiConnector } from "../apiConnector"
-import { studentEndpoints } from "../apis"
+import { resetCart } from "../../slices/cartSlice.js"
+import { setPaymentLoading } from "../../slices/courseSlice.js"
+import { apiConnector } from "../apiConnector.js"
+import { studentEndpoints } from "../apis.js"
 
 const {
   COURSE_PAYMENT_API,

@@ -5,9 +5,9 @@ import { useParams } from "react-router-dom"
 import {
   fetchCourseDetails,
   getFullDetailsOfCourse,
-} from "../../../../services/operations/courseDetailsAPI"
-import { setCourse, setEditCourse } from "../../../../slices/courseSlice"
-import RenderSteps from "../AddCourse/RenderSteps"
+} from "../../../../services/operations/courseDetailsAPI.js"
+import { setCourse, setEditCourse } from "../../../../slices/courseSlice.js"
+import RenderSteps from "../AddCourse/RenderSteps.jsx"
 
 export default function EditCourse() {
   const dispatch = useDispatch()

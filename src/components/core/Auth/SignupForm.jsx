@@ -4,10 +4,10 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import { sendOtp } from "../../../services/operations/authAPI"
-import { setSignupData } from "../../../slices/authSlice"
-import { ACCOUNT_TYPE } from "../../../utils/constants"
-import Tab from "../../Common/Tab"
+import { sendOtp } from "../../../services/operations/authAPI.js"
+import { setSignupData } from "../../../slices/authSlice.js"
+import { ACCOUNT_TYPE } from "../../../utils/constants.js"
+import Tab from "../../Common/Tab.jsx"
 
 function SignupForm() {
   const navigate = useNavigate()

@@ -1,7 +1,7 @@
-import ChangeProfilePicture from "./ChangeProfilePicture"
-import DeleteAccount from "./DeleteAccount"
-import EditProfile from "./EditProfile"
-import UpdatePassword from "./UpdatePassword"
+import ChangeProfilePicture from "./ChangeProfilePicture.jsx"
+import DeleteAccount from "./DeleteAccount.jsx"
+import EditProfile from "./EditProfile.jsx"
+import UpdatePassword from "./UpdatePassword.jsx"
 
 export default function Settings() {
   return (

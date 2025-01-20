@@ -10,8 +10,8 @@ import "swiper/css/pagination"
 // Import required modules
 import { FreeMode, Pagination } from "swiper"
 
-// import { getAllCourses } from "../../services/operations/courseDetailsAPI"
-import Course_Card from "./Course_Card"
+// import { getAllCourses } from "../../services/operations/courseDetailsAPI.js"
+import Course_Card from "./Course_Card.jsx"
 
 function Course_Slider({ Courses }) {
   return (

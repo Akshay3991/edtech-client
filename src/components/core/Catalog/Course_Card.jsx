@@ -4,8 +4,8 @@ import { FaRegStar, FaStar } from "react-icons/fa"
 import ReactStars from "react-rating-stars-component"
 import { Link } from "react-router-dom"
 
-import GetAvgRating from "../../../utils/avgRating"
-import RatingStars from "../../Common/RatingStars"
+import GetAvgRating from "../../../utils/avgRating.js"
+import RatingStars from "../../Common/RatingStars.jsx"
 
 function Course_Card({ course, Height }) {
   // const avgReviewCount = GetAvgRating(course.ratingAndReviews)

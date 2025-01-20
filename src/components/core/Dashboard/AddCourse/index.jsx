@@ -1,4 +1,4 @@
-import RenderSteps from "./RenderSteps"
+import RenderSteps from "./RenderSteps.jsx"
 
 export default function AddCourse() {
   return (
