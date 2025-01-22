@@ -1,5 +1,5 @@
 // const BASE_URL = process.env.REACT_APP_BASE_URL
-const  BASE_URL = "https://edtech-server-0nhm.onrender.com/api/v1"
+const  BASE_URL = "https://edtech-server-a3tn.onrender.com"
 // AUTH ENDPOINTS
 export const endpoints = {
   SENDOTP_API: BASE_URL + "/auth/sendotp",
