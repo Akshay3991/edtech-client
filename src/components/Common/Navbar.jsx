@@ -11,24 +11,24 @@ import { categories } from "../../services/apis.js"
 import { ACCOUNT_TYPE } from "../../utils/constants.js"
 import ProfileDropdown from "../core/Auth/ProfileDropdown.jsx"
 
-const subLinks = [
-  {
-    title: "Python",
-    link: "/catalog/python",
-  },
-  {
-    title: "javascript",
-    link: "/catalog/javascript",
-  },
-  {
-    title: "web-development",
-    link: "/catalog/web-development",
-  },
-  {
-    title: "Android Development",
-    link: "/catalog/Android Development",
-  },
-];
+// const subLinks = [
+//   {
+//     title: "Python",
+//     link: "/catalog/python",
+//   },
+//   {
+//     title: "javascript",
+//     link: "/catalog/javascript",
+//   },
+//   {
+//     title: "web-development",
+//     link: "/catalog/web-development",
+//   },
+//   {
+//     title: "Android Development",
+//     link: "/catalog/Android Development",
+//   },
+// ];
 
 function Navbar() {
   const { token } = useSelector((state) => state.auth)
@@ -61,7 +61,7 @@ function Navbar() {
 
   return (
     <div
-      className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${location.pathname !== "/" ? "bg-richblack-800" : ""
+      className={`flex h-14 items-center justify-center border-b-[1px]  ${location.pathname !== "/" ? "" : ""
         } transition-all duration-200`}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
