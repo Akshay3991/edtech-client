@@ -36,7 +36,7 @@ function Navbar() {
   const { totalItems } = useSelector((state) => state.cart)
   const location = useLocation()
 
-  // const [subLinks, setSubLinks] = useState([])
+  const [subLinks, setSubLinks] = useState([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -45,9 +45,9 @@ function Navbar() {
       try {
         const res = await apiConnector("GET", categories.CATEGORIES_API)
         // console.log(res)
-        // setSubLinks(res.data.data)
+        setSubLinks(res.data.data)
       } catch (error) {
-        console.log("Could not fetch Categories.", error)
+        // console.log("Could not fetch Categories.", error)
       }
       setLoading(false)
     })()
@@ -61,17 +61,17 @@ function Navbar() {
 
   return (
     <div
-      className={`flex h-14 items-center justify-center border-b-[1px]  ${location.pathname !== "/" ? "" : ""
+      className={`flex w-[100vw] h-[10vh] items-center justify-center ${location.pathname !== "/" ? "bg-[white]  font-sans" : "bg-richblack-100  font-black"
         } transition-all duration-200`}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
         <Link to="/">
-          <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
+          <img src={logo} alt="Logo" width={170} height={35} loading="lazy" />
         </Link>
         {/* Navigation links */}
         <nav className="hidden md:block">
-          <ul className="flex gap-x-6 text-richblack-25">
+          <ul className="flex gap-x-8 text-richblack">
             {NavbarLinks.map((link, index) => (
               <li key={index}>
                 {link.title === "Catalog" ? (
@@ -100,7 +100,7 @@ function Navbar() {
                                     .split(" ")
                                     .join("-")
                                     .toLowerCase()}`}
-                                  className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50"
+                                  className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-500"
                                   key={i}
                                 >
                                   <p>{subLink.name}</p>
@@ -143,14 +143,14 @@ function Navbar() {
           )}
           {token === null && (
             <Link to="/login">
-              <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+              <button className="rounded-[8px] border  bg-[#942C2F] px-[12px] py-[8px] text-richblack-50">
                 Log in
               </button>
             </Link>
           )}
           {token === null && (
             <Link to="/signup">
-              <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+              <button className="rounded-[8px] border  bg-[#942C2F] px-[12px] py-[8px] text-richblack-50">
                 Sign up
               </button>
             </Link>
@@ -158,7 +158,7 @@ function Navbar() {
           {token !== null && <ProfileDropdown />}
         </div>
         <button className="mr-4 md:hidden">
-          <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+          <AiOutlineMenu fontSize={24} fill="#942C2F" />
         </button>
       </div>
     </div>
