@@ -24,7 +24,7 @@ const Community = ["Forums", "Chapters", "Events"];
 
 const Footer = () => {
   return (
-    <div className="bg-richblack-800">
+    <div className="bg-[#1F262C]">
       <div className="flex lg:flex-row gap-8 items-center justify-between w-11/12 max-w-maxContent text-richblack-400 leading-6 mx-auto relative py-14">
         <div className="border-b w-[100%] flex flex-col lg:flex-row pb-5 border-richblack-700">
           {/* Section 1 */}
@@ -172,7 +172,7 @@ const Footer = () => {
             })}
           </div>
 
-          <div className="text-center">Made with ❤️ CodeHelp © 2023 Studynotion</div>
+          <div className="text-center bg-[#A12C2F] text-[whitesmoke] text-[23px] font-mono p-[10px] rounded-20px">Made By Akshay© 2025 EducationMart</div>
         </div>
       </div>
     </div>

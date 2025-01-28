@@ -2,9 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+html{
+  overflow-x: hidden;
+}
 body {
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -34,6 +37,19 @@ body {
 *:hover::-webkit-scrollbar-thumb {
   visibility: visible;
 }
+:root {
+  --primary-color: #942c2f;
+  --background-light: #ffffff;
+  --text-light: #000000;
+  --background-dark: #121212;
+  --text-dark: #ffffff;
+}
+
+.dark {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
 
 /* Hide default styling of details/summary */
 details > summary {
