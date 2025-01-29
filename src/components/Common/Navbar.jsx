@@ -56,8 +56,8 @@ function Navbar() {
           <img
             src= {logo}
             alt="Logo"
-            width={170}
-            height={35}
+            width={150}
+            height={25}
             loading="lazy"
             className={`${isDarkMode ? "invert" : ""}`}
           />
