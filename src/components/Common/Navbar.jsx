@@ -46,20 +46,20 @@ function Navbar() {
 
   return (
     <div
-      className={`flex w-[100vw] h-[10vh] items-center justify-center ${
-        isDarkMode ? "bg-richblack-900 text-white" : "bg-white text-richblack-900"
-      } transition-all duration-200`}
+      className={`flex w-[100vw] h-[10vh] items-center justify-center ${isDarkMode ? "bg-richblack-900 text-white" : "bg-white text-richblack-900"
+        } transition-all duration-200`}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
         <Link to="/">
           <img
-            src= {logo}
+            src={logo}
             alt="Logo"
-            width={120}
-           height={15}
+            width="auto"
+            height="8vh"
             loading="lazy"
-            className={`${isDarkMode ? "invert" : ""}`}
+            className={`${isDarkMode ? "invert" : ""} ml-4`} // Add margin-left for spacing
+            style={{ padding: "1vh 0" }} // Optional: Add padding for top and bottom
           />
         </Link>
 
@@ -71,27 +71,23 @@ function Navbar() {
                 {link.title === "Catalog" ? (
                   <>
                     <div
-                      className={`group relative flex cursor-pointer items-center gap-1 ${
-                        matchRoute("/catalog/:catalogName")
+                      className={`group relative flex cursor-pointer items-center gap-1 ${matchRoute("/catalog/:catalogName")
                           ? "text-yellow-500"
                           : isDarkMode
-                          ? "text-richblack-100"
-                          : "text-richblack-900"
-                      }`}
+                            ? "text-richblack-100"
+                            : "text-richblack-900"
+                        }`}
                     >
                       <p>{link.title}</p>
                       <BsChevronDown />
                       <div
-                        className={`invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg ${
-                          isDarkMode ? "bg-richblack-800" : "bg-white"
-                        } p-4 ${
-                          isDarkMode ? "text-richblack-100" : "text-richblack-900"
-                        } opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px] shadow-lg`}
+                        className={`invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg ${isDarkMode ? "bg-richblack-800" : "bg-white"
+                          } p-4 ${isDarkMode ? "text-richblack-100" : "text-richblack-900"
+                          } opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px] shadow-lg`}
                       >
                         <div
-                          className={`absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded ${
-                            isDarkMode ? "bg-richblack-800" : "bg-white"
-                          }`}
+                          className={`absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded ${isDarkMode ? "bg-richblack-800" : "bg-white"
+                            }`}
                         ></div>
                         {loading ? (
                           <p className="text-center">Loading...</p>
@@ -105,11 +101,10 @@ function Navbar() {
                                     .split(" ")
                                     .join("-")
                                     .toLowerCase()}`}
-                                  className={`rounded-lg bg-transparent py-2 pl-4 hover:bg-opacity-10 ${
-                                    isDarkMode
+                                  className={`rounded-lg bg-transparent py-2 pl-4 hover:bg-opacity-10 ${isDarkMode
                                       ? "hover:bg-richblack-700"
                                       : "hover:bg-richblack-100"
-                                  } transition-all duration-200`}
+                                    } transition-all duration-200`}
                                   key={i}
                                 >
                                   <p>{subLink.name}</p>
@@ -125,13 +120,12 @@ function Navbar() {
                 ) : (
                   <Link to={link?.path}>
                     <p
-                      className={`${
-                        matchRoute(link?.path)
+                      className={`${matchRoute(link?.path)
                           ? "text-yellow-500"
                           : isDarkMode
-                          ? "text-richblack-100"
-                          : "text-richblack-900"
-                      } hover:text-yellow-500 transition-all duration-200`}
+                            ? "text-richblack-100"
+                            : "text-richblack-900"
+                        } hover:text-yellow-500 transition-all duration-200`}
                     >
                       {link.title}
                     </p>
@@ -147,9 +141,8 @@ function Navbar() {
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className={`p-2 rounded-full ${
-              isDarkMode ? "bg-richblack-700" : "bg-richblack-100"
-            } hover:bg-opacity-80 transition-all duration-200`}
+            className={`p-2 rounded-full ${isDarkMode ? "bg-richblack-700" : "bg-richblack-100"
+              } hover:bg-opacity-80 transition-all duration-200`}
           >
             {isDarkMode ? (
               <BsSun className="text-xl text-yellow-500" />
@@ -161,17 +154,14 @@ function Navbar() {
           {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
             <Link to="/dashboard/cart" className="relative">
               <AiOutlineShoppingCart
-                className={`text-2xl ${
-                  isDarkMode ? "text-richblack-100" : "text-richblack-900"
-                }`}
+                className={`text-2xl ${isDarkMode ? "text-richblack-100" : "text-richblack-900"
+                  }`}
               />
               {totalItems > 0 && (
                 <span
-                  className={`absolute -bottom-2 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full ${
-                    isDarkMode ? "bg-richblack-700" : "bg-richblack-100"
-                  } text-center text-xs font-bold ${
-                    isDarkMode ? "text-yellow-100" : "text-yellow-500"
-                  }`}
+                  className={`absolute -bottom-2 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full ${isDarkMode ? "bg-richblack-700" : "bg-richblack-100"
+                    } text-center text-xs font-bold ${isDarkMode ? "text-yellow-100" : "text-yellow-500"
+                    }`}
                 >
                   {totalItems}
                 </span>
@@ -182,11 +172,9 @@ function Navbar() {
           {token === null && (
             <Link to="/login">
               <button
-                className={`rounded-[8px] border ${
-                  isDarkMode ? "border-richblack-700" : "border-richblack-100"
-                } bg-[#942C2F] px-[12px] py-[8px] ${
-                  isDarkMode ? "text-richblack-100" : "text-richblack-900"
-                } hover:bg-opacity-80 transition-all duration-200`}
+                className={`rounded-[8px] border ${isDarkMode ? "border-richblack-700" : "border-richblack-100"
+                  } bg-[#942C2F] px-[12px] py-[8px] ${isDarkMode ? "text-richblack-100" : "text-richblack-900"
+                  } hover:bg-opacity-80 transition-all duration-200`}
               >
                 Log in
               </button>
@@ -196,11 +184,9 @@ function Navbar() {
           {token === null && (
             <Link to="/signup">
               <button
-                className={`rounded-[8px] border ${
-                  isDarkMode ? "border-richblack-700" : "border-richblack-100"
-                } bg-[#942C2F] px-[12px] py-[8px] ${
-                  isDarkMode ? "text-richblack-100" : "text-richblack-900"
-                } hover:bg-opacity-80 transition-all duration-200`}
+                className={`rounded-[8px] border ${isDarkMode ? "border-richblack-700" : "border-richblack-100"
+                  } bg-[#942C2F] px-[12px] py-[8px] ${isDarkMode ? "text-richblack-100" : "text-richblack-900"
+                  } hover:bg-opacity-80 transition-all duration-200`}
               >
                 Sign up
               </button>
