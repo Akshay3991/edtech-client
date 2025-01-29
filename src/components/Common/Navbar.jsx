@@ -4,6 +4,7 @@ import { BsChevronDown, BsSun, BsMoon } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { Link, matchPath, useLocation } from "react-router-dom";
 
+import logo from "../../assets/Logo/logo.png";
 import { NavbarLinks } from "../../data/navbar-links.js";
 import { apiConnector } from "../../services/apiConnector.js";
 import { categories } from "../../services/apis.js";
@@ -53,7 +54,7 @@ function Navbar() {
         {/* Logo */}
         <Link to="/">
           <img
-            src="../../assets/Logo/logo.png"
+            src= {logo}
             alt="Logo"
             width={170}
             height={35}
