@@ -1,6 +1,6 @@
 import { toast } from "react-hot-toast"
 
-import rzpLogo from "../../assets/Logo/rzp_logo.png"
+import rzpLogo from "../../assets/Logo/logo.png"
 import { resetCart } from "../../slices/cartSlice.js"
 import { setPaymentLoading } from "../../slices/courseSlice.js"
 import { apiConnector } from "../apiConnector.js"
