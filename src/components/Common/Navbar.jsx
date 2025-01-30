@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai";
 import { BsChevronDown, BsSun, BsMoon } from "react-icons/bs";
 import { useSelector } from "react-redux";
-import { Link, matchPath, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/Logo/logo.png";
 import { NavbarLinks } from "../../data/navbar-links.js";
@@ -15,7 +15,6 @@ function Navbar() {
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
   const { totalItems } = useSelector((state) => state.cart);
-  const location = useLocation();
 
   const [subLinks, setSubLinks] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -34,9 +33,7 @@ function Navbar() {
     })();
   }, []);
 
-  const matchRoute = (route) => {
-    return matchPath({ path: route }, location.pathname);
-  };
+
 
   // Toggle light/dark mode
   const toggleTheme = () => {
@@ -72,9 +69,9 @@ function Navbar() {
                 {link.title === "Catalog" ? (
                   <>
                     <div
-                      className={`group relative flex cursor-pointer items-center gap-1 ${ isDarkMode
-                            ? "text-richblack-100"
-                            : "text-richblack-900"
+                      className={`group relative flex cursor-pointer items-center gap-1 ${isDarkMode
+                        ? "text-richblack-100"
+                        : "text-richblack-900"
                         }`}
                     >
                       <p>{link.title}</p>
@@ -101,8 +98,8 @@ function Navbar() {
                                     .join("-")
                                     .toLowerCase()}`}
                                   className={`rounded-lg bg-transparent py-2 pl-4 hover:bg-opacity-10 ${isDarkMode
-                                      ? "hover:bg-richblack-700"
-                                      : "hover:bg-richblack-100"
+                                    ? "hover:bg-richblack-700"
+                                    : "hover:bg-richblack-100"
                                     } transition-all duration-200`}
                                   key={i}
                                 >
@@ -120,8 +117,8 @@ function Navbar() {
                   <Link to={link?.path}>
                     <p
                       className={`${isDarkMode
-                            ? "text-richblack-100"
-                            : "text-richblack-900"
+                        ? "text-richblack-100"
+                        : "text-richblack-900"
                         } transition-all duration-200`}
                     >
                       {link.title}
