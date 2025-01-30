@@ -46,21 +46,22 @@ function Navbar() {
 
   return (
     <div
-      className={`flex w-[100vw] h-[10vh] items-center justify-center ${isDarkMode ? "bg-richblack-900 text-white" : "bg-white text-richblack-900"
+      className={`flex fixed z-10 w-[100vw] h-[10vh] font-mono  text-[18px] items-center justify-center ${isDarkMode ? "bg-[#010a01] text-white" : "bg-[whitesmoke] text-richblack-900"
         } transition-all duration-200`}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
-        <Link to="/">
+        <Link to="/" className="flex items-center gap-2">
           <img
             src={logo}
             alt="Logo"
-            width="auto"
-            height="8vh"
+            width="40px"
+            height="40px"
             loading="lazy"
-            className={`${isDarkMode ? "invert" : ""} ml-4`} // Add margin-left for spacing
+            className="" // Add margin-left for spacing
             style={{ padding: "1vh 0" }} // Optional: Add padding for top and bottom
           />
+          <span className="font-bold font-edu-sa text-[23px]">Education<i className="text-[white]">Mart</i></span>
         </Link>
 
         {/* Navigation links */}
@@ -71,9 +72,7 @@ function Navbar() {
                 {link.title === "Catalog" ? (
                   <>
                     <div
-                      className={`group relative flex cursor-pointer items-center gap-1 ${matchRoute("/catalog/:catalogName")
-                          ? "text-yellow-500"
-                          : isDarkMode
+                      className={`group relative flex cursor-pointer items-center gap-1 ${ isDarkMode
                             ? "text-richblack-100"
                             : "text-richblack-900"
                         }`}
@@ -120,12 +119,10 @@ function Navbar() {
                 ) : (
                   <Link to={link?.path}>
                     <p
-                      className={`${matchRoute(link?.path)
-                          ? "text-yellow-500"
-                          : isDarkMode
+                      className={`${isDarkMode
                             ? "text-richblack-100"
                             : "text-richblack-900"
-                        } hover:text-yellow-500 transition-all duration-200`}
+                        } transition-all duration-200`}
                     >
                       {link.title}
                     </p>
@@ -172,9 +169,8 @@ function Navbar() {
           {token === null && (
             <Link to="/login">
               <button
-                className={`rounded-[8px] border ${isDarkMode ? "border-richblack-700" : "border-richblack-100"
-                  } bg-[#942C2F] px-[12px] py-[8px] ${isDarkMode ? "text-richblack-100" : "text-richblack-900"
-                  } hover:bg-opacity-80 transition-all duration-200`}
+                className={`rounded-[10px] p-[6px] font-edu-sa ${isDarkMode ? "bg-[wheat]" : "bg-[#014A32] text-[whitesmoke] "
+                  }`}
               >
                 Log in
               </button>
@@ -184,9 +180,8 @@ function Navbar() {
           {token === null && (
             <Link to="/signup">
               <button
-                className={`rounded-[8px] border ${isDarkMode ? "border-richblack-700" : "border-richblack-100"
-                  } bg-[#942C2F] px-[12px] py-[8px] ${isDarkMode ? "text-richblack-100" : "text-richblack-900"
-                  } hover:bg-opacity-80 transition-all duration-200`}
+                className={`rounded-[10px] p-[4px] font-edu-sa ${isDarkMode ? "bg-[wheat]" : "bg-[#014A32] text-[whitesmoke]"
+                  }`}
               >
                 Sign up
               </button>

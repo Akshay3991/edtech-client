@@ -10,7 +10,6 @@ import ContactFormSection from "../components/core/AboutPage/ContactFormSection.
 import LearningGrid from "../components/core/AboutPage/LearningGrid.jsx"
 import Quote from "../components/core/AboutPage/Quote.jsx"
 import StatsComponenet from "../components/core/AboutPage/Stats.jsx"
-import HighlightText from "../components/core/HomePage/HighlightText.jsx"
 
 const About = () => {
   return (
@@ -19,7 +18,6 @@ const About = () => {
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
           <header className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]">
             Driving Innovation in Online Education for a
-            <HighlightText text={"Brighter Future"} />
             <p className="mx-auto mt-3 text-center text-base font-medium text-richblack-300 lg:w-[95%]">
               Studynotion is at the forefront of driving innovation in online
               education. We're passionate about creating a brighter future by
