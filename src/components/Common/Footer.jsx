@@ -4,7 +4,7 @@ import logo from "../../assets/Logo/logo.png";
 
 function Footer() {
   return (
-    <footer className="bg-[#010801] text-white py-8">
+    <footer className="bg-[#010801] w-[100vw]   text-white py-8">
       <div className="container mx-auto px-4">
         {/* Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
