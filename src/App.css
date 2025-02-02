@@ -17,6 +17,10 @@ body {
   scrollbar-width: auto;
   scrollbar-color: #afb2bf;
 }
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar in Chrome, Safari, Edge */
+}
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {

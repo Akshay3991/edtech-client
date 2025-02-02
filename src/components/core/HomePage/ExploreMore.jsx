@@ -36,7 +36,7 @@ const ExploreMore = () => {
         </p>
       </div>
 
-      <div className="w-[80%] mx-auto rounded-[20px] p-[5px] bg-[white]">
+      <div className="w-[80%] mt-[50px] mx-auto rounded-[20px] p-[5px] bg-[white]">
 
         {/* Tabs Section */}
         <div className="flex rounded-[20px] bg-[whitesmoke]">
