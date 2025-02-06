@@ -14,7 +14,7 @@ export default function Instructor() {
   const [courses, setCourses] = useState([])
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       setLoading(true)
       const instructorApiData = await getInstructorData(token)
       const result = await fetchInstructorCourses(token)

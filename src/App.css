@@ -220,6 +220,9 @@ details>summary::-webkit-details-marker {
     transform: scaleY(-1) rotate(-135deg);
   }
 }
+.aboutus_bg{
+  background-image: url('../src/assets/Images/aboutusbg.png');
+}
 .bg_img{
   background-image: url('../src/assets/Images/bgimage.jpg');
 }
