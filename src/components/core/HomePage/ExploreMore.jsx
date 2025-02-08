@@ -25,56 +25,50 @@ const ExploreMore = () => {
   };
 
   return (
-    <div className="flex-col w-[100vw] pt-[50px]">
+    <div className="flex flex-col items-center w-full pt-[50px] px-4">
       {/* Explore more section */}
-      <div className="text-center ">
-        <h1 className="text-[#FF1949] font-sans text-[54px] font-bold">
+      <div className="text-center">
+        <h1 className="text-[#FF1949] font-sans text-[2rem] sm:text-[3rem] md:text-[3.5rem] font-bold">
           Unlock the Power of Code
         </h1>
-        <p className="font-black text-[black] text-[24px] ">
+        <p className="font-black text-[black] text-[1rem] sm:text-[1.5rem] md:text-[1.8rem]">
           Learn to Build Anything You Can Imagine
         </p>
       </div>
 
-      <div className="w-[80%] mt-[50px] mx-auto rounded-[20px] p-[5px] bg-[white]">
-
+      <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] mt-[30px] mx-auto rounded-[20px] p-[5px] bg-[white]">
         {/* Tabs Section */}
-        <div className="flex rounded-[20px] bg-[whitesmoke]">
-          {tabsName.map((ele, index) => {
-            return (
-              <div
-                className={` text-[16px] flex flex-row items-center gap-2 ${currentTab === ele
-                  ? "bg-richblack-900 text-richblack-5 text-[20px] font-medium"
+        <div className="flex flex-wrap justify-center rounded-[20px] bg-[whitesmoke] p-2">
+          {tabsName.map((ele, index) => (
+            <div
+              className={`text-[14px] sm:text-[16px] flex flex-row items-center gap-2 
+            ${currentTab === ele
+                  ? "bg-richblack-900 text-richblack-5 text-[18px] sm:text-[20px] font-medium"
                   : "text-[black] font-bold font-sans"
-                  } px-7 py-[7px] rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5`}
-                key={index}
-                onClick={() => setMyCards(ele)}
-              >
-                {ele}
-              </div>
-            );
-          })}
+                } 
+            px-4 sm:px-7 py-[7px] rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5`}
+              key={index}
+              onClick={() => setMyCards(ele)}
+            >
+              {ele}
+            </div>
+          ))}
         </div>
-
 
         {/* Cards Group */}
-        <div className=" flex mt-[30px] w-[90%] gap-[20px] mx-auto ">
-          {courses.map((ele, index) => {
-            return (
-              <CourseCard
-                key={index}
-                cardData={ele}
-                currentCard={currentCard}
-                setCurrentCard={setCurrentCard}
-              />
-            );
-          })}
+        <div className="flex flex-wrap justify-center gap-5 mt-[20px] w-full">
+          {courses.map((ele, index) => (
+            <CourseCard
+              key={index}
+              cardData={ele}
+              currentCard={currentCard}
+              setCurrentCard={setCurrentCard}
+            />
+          ))}
         </div>
-
       </div>
-
-
     </div>
+
   );
 };
 

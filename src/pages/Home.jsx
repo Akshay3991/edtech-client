@@ -60,47 +60,58 @@ function Home() {
   }, []);
   return (
     <div className="flex-col">
-      <div className="w-[100vw] relative h-[50rem]">
-        <div className="bg-[whitesmoke] absolute  z-0 w-[100%] h-[50%]"></div>
-        <div className="bg-[#014A32] absolute  z-0 top-[50%]  w-[100%] h-[50%]"></div>
-        <div className="absolute z-5 top-[95px] left-[50px] w-[95%] h-[100%] ">
-          <div className="relative w-[95%] m-auto h-[90%] ">
+      <div className="w-full relative h-[40rem] sm:h-[45rem] md:h-[50rem] lg:h-[55rem]">
+        {/* Background Divs */}
+        <div className="bg-[whitesmoke] absolute z-0 w-full h-[50%]"></div>
+        <div className="bg-[#014A32] absolute z-0 top-[50%] w-full h-[50%]"></div>
 
+        {/* Main Content Container */}
+        <div className="absolute z-5 top-[5%] left-[5%] w-[90%] h-[90%]">
+          <div className="relative w-full h-full m-auto">
+
+            {/* Video */}
             <video
-              className={` shadow-xl w-full h-full object-cover z-0 absolute   shadow-[#130e0e] ${isDarkMode ? "brightness-120" : "brightness-50"}`}
+              className={`shadow-xl w-full h-full object-cover z-0 absolute shadow-[#130e0e] 
+        ${isDarkMode ? "brightness-120" : "brightness-50"}`}
               muted
               loop
               autoPlay
             >
-              <source src={Banner} className="" type="video/mp4" />
+              <source src={Banner} type="video/mp4" />
             </video>
 
+            {/* Toggle Brightness Button */}
             <button
-              className="absolute z-5 top-[0px] left-[5px]"
-              onClick={toggleBright}>
+              className="absolute z-5 top-[15px] left-[15px] p-2 bg-white/30 rounded-full"
+              onClick={toggleBright}
+            >
               {isDarkMode ? (
-                <HiLightBulb className="text-xl text-[yellow]" />
+                <HiLightBulb className="text-2xl text-yellow-400" />
               ) : (
-                <HiLightBulb className="text-xl " />
+                <HiLightBulb className="text-2xl text-gray-700" />
               )}
             </button>
-            <div className={`top-[200px] left-[100px] w-[500px] absolute z-5 ${isDarkMode ? "text-[black]" : "text-[whitesmoke]"}`}>
-              <h1 className="text-[54px] font-inter font-bold">Convenient Easy Way of Learning New Skills!</h1>
-              <p className="text-[24px]  font-mono">Learn from EducationMart online platform by following our proven ways to achieve the Best Skills for your present and future career.</p>
+
+            {/* Text Content */}
+            <div
+              className={`absolute z-5 w-[90%] max-w-[500px] top-[15%] left-[5%] sm:top-[20%] sm:left-[8%] 
+        md:top-[25%] md:left-[10%] ${isDarkMode ? "text-black" : "text-whitesmoke"}`}
+            >
+              <h1 className="text-[1.8rem] sm:text-[2.3rem] md:text-[2.8rem] lg:text-[3.3rem] font-inter font-bold leading-tight">
+                Convenient & Easy Way to Learn New Skills!
+              </h1>
+              <p className="text-[0.9rem] sm:text-[1.1rem] md:text-[1.3rem] font-mono mt-4">
+                Learn from <b>EducationMart</b> by following our proven strategies to gain the best skills for your present and future career.
+              </p>
             </div>
           </div>
-
         </div>
       </div>
-      <div className="w-[100vw] h-[35rem] bg-[#014A32]">
-        {/* Code Section 1  */}
+
+      <div className="w-full h-[40rem] sm:h-[47rem] md:h-[50rem] bg-[#014A32] flex items-center justify-center p-4">
         <CodeBlocks
-          heading={
-            "Unlock Your coding potential with our online courses"
-          }
-          subheading={
-            "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."
-          }
+          heading="Unlock Your Coding Potential with Our Online Courses"
+          subheading="Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."
           ctabtn1={{
             btnText: "Try it Yourself",
             link: "/signup",
@@ -111,32 +122,33 @@ function Home() {
             link: "/signup",
             active: false,
           }}
-          codeColor={"text-[green]"}
-          codeblock={`<!DOCTYPE html>\n <html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a>\n</nav>\n</body>`}
+          codeblock={`<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav>\n<a href="/one">One</a>\n<a href="/two">Two</a>\n<a href="/three">Three</a>\n</nav>\n</body>\n</html>`}
         />
       </div>
-      <div className="w-[100vw] h-[40rem] bg-cover bg_img relative" >
 
+      <div className="w-screen h-[25rem] sm:h-[30rem] md:h-[35rem] lg:h-[40rem] bg-cover bg-center md:bg-fixed bg_img relative">
         <ExploreMore />
       </div>
-      <div className="mx-auto bg-[#FDFDFD]  flex  w-[100vw] h-[50rem] flex-col items-center justify-between gap-8 ">
-        <div className="flex w-[85vw] m-auto mt-[50px]">
-          <h1 className="w-[50%] text-[54px] text-start font-black leading-[50px]">
+
+      <div className="mx-auto bg-[#FDFDFD] flex flex-col items-center justify-between gap-8 w-full min-h-[50rem] px-4 sm:px-8 py-10">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row w-full md:w-[85vw] items-start gap-6">
+          <h1 className="w-full md:w-[50%] text-[2rem] sm:text-[3rem] md:text-[3.5rem] text-start font-black leading-[2.5rem] sm:leading-[3rem] md:leading-[4rem]">
             Get the skills you need for a job.
           </h1>
-          <div className="w-[50%]">
-            <h3 className="text-[19px] text-start  font-edu-sa">
-              The modern <i className="text-[21px] font-mono">EducationMart</i> dictates its own terms. Today, to
+          <div className="w-full md:w-[50%]">
+            <h3 className="text-[1rem] sm:text-[1.2rem] md:text-[1.5rem] text-start font-edu-sa">
+              The modern <i className="text-[1.2rem] sm:text-[1.3rem] md:text-[1.5rem] font-mono">EducationMart</i> dictates its own terms. Today, to
               be a competitive specialist requires more than professional
               skills.
             </h3>
-
           </div>
         </div>
 
+        {/* Timeline Section */}
         <TimelineSection />
-
       </div>
+
       <div onClick={toggleBright}
         className={`w-[100vw] h-[50rem] realtive bg-[grey] ${isDarkMode ? "brightness-120" : "brightness-50"}`}>
         <img src={Discoverimg} className={`absolute z-0 w-[100%]   h-[50rem]`} alt="" />
@@ -274,7 +286,7 @@ function Home() {
         <h1 className="text-center text-4xl font-semibold mt-8">
           Reviews from other learners
         </h1>
-        {/* <ReviewSlider /> */}
+        <ReviewSlider />
       </div>
       <Footer />
     </div>

@@ -9,24 +9,23 @@ const CodeBlocks = ({
   ctabtn1,
   ctabtn2,
   codeblock,
-  codeColor,
 }) => {
   return (
-    <div className="flex pt-[100px]">
-      {/* Section 1  */}
-      <div className="w-[40vw] ml-[100px]">
-        {/* heading */}
-        <h1 className="text-[54px] font-sans font-black leading-[55px] text-[white]">
+    <div className="flex flex-col md:flex-row items-center pt-[50px] md:pt-[100px] px-6 md:px-12">
+      {/* Section 1 */}
+      <div className="w-full md:w-[40vw] text-center md:text-left">
+        {/* Heading */}
+        <h1 className="text-[32px] sm:text-[40px] md:text-[54px] font-sans font-black leading-tight text-white">
           {heading}
         </h1>
 
-        {/* Sub Heading */}
-        <h2 className="text-[24px] font-edu-sa font-thin text-[white]">
+        {/* Subheading */}
+        <h2 className="text-[18px] sm:text-[20px] md:text-[24px] font-edu-sa font-thin text-white mt-2">
           {subheading}
         </h2>
 
         {/* Button Group */}
-        <div className="flex gap-7 mt-7">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-7 mt-6 justify-center md:justify-start">
           <CTAButton active={ctabtn1.active} linkto={ctabtn1.link}>
             <div className="flex items-center gap-2">
               {ctabtn1.btnText}
@@ -39,27 +38,12 @@ const CodeBlocks = ({
         </div>
       </div>
 
-      {/* Section 2 */}
-      <div className="flex ml-[200px] bg-[whitesmoke] shadow-lg shadow-black w-[30vw] mr-[100px] ">
-        {/* Indexing */}
-        <div className="text-center flex flex-col font-edu-sa  w-[10%] select-none  font-bold ">
-          <p>1</p>
-          <p>2</p>
-          <p>3</p>
-          <p>4</p>
-          <p>5</p>
-          <p>6</p>
-          <p>7</p>
-          <p>8</p>
-          <p>9</p>
-          <p>10</p>
-          <p>11</p>
-          <p>12</p>
-        </div>
+      {/* Section 2 (Code Block) */}
+      <div className="w-[90%] sm:w-[70%] md:w-[60vw] lg:w-[30vw] flex flex-col items-center bg-whitesmoke shadow-lg shadow-black p-2 sm:p-4 mt-6 md:mt-0 h-[200px] sm:h-[250px] overflow-auto">
 
-        {/* Codes */}
+        {/* Code Block */}
         <div
-          className={`w-[90%] flex flex-col text-[#014A32] gap-2 font-semibold font-sans ${codeColor} pr-1`}
+          className="w-full flex flex-col text-[whitesmoke] gap-1 font-semibold font-sans pr-1"
         >
           <TypeAnimation
             sequence={[codeblock, 1000, ""]}
@@ -73,7 +57,9 @@ const CodeBlocks = ({
           />
         </div>
       </div>
+
     </div>
+
   );
 };
 
