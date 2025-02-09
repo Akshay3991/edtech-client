@@ -25,10 +25,10 @@ const ExploreMore = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full pt-[50px] px-4">
+    <div className="flex flex-col  w-[90%] mx-auto">
       {/* Explore more section */}
       <div className="text-center">
-        <h1 className="text-[#FF1949] font-sans text-[2rem] sm:text-[3rem] md:text-[3.5rem] font-bold">
+        <h1 className="text-[#FF1949] font-sans text-[1.6rem] sm:text-[3rem] md:text-[3.5rem] font-bold">
           Unlock the Power of Code
         </h1>
         <p className="font-black text-[black] text-[1rem] sm:text-[1.5rem] md:text-[1.8rem]">
@@ -36,7 +36,7 @@ const ExploreMore = () => {
         </p>
       </div>
 
-      <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] mt-[30px] mx-auto rounded-[20px] p-[5px] bg-[white]">
+      <div className=" mt-[30px] mx-auto rounded-[20px] p-[5px] bg-[white]">
         {/* Tabs Section */}
         <div className="flex flex-wrap justify-center rounded-[20px] bg-[whitesmoke] p-2">
           {tabsName.map((ele, index) => (

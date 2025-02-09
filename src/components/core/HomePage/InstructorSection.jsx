@@ -5,7 +5,7 @@ import Instructor from "../../../assets/Images/Instructor.png";
 
 const InstructorSection = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center w-full p-4 sm:p-8 lg:p-16 gap-10 lg:gap-20">
+    <div className="flex flex-col lg:flex-row items-center w-[90%] mx-auto p-4 sm:p-8 lg:p-16 gap-10 lg:gap-20">
       {/* Left Side - Instructor Image */}
       <div className="w-full sm:w-[70%] lg:w-[40%] flex justify-center">
         <img
@@ -16,8 +16,8 @@ const InstructorSection = () => {
       </div>
 
       {/* Right Side - Text & CTA */}
-      <div className="w-full lg:w-[60%] flex flex-col text-center lg:text-left">
-        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black font-sans">
+      <div className="w-full lg:w-[60%] flex flex-col text-left ">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-sans">
           Become an Instructor
         </h1>
 
