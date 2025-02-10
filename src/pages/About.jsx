@@ -9,7 +9,6 @@ import BannerImage2 from "../assets/Images/aboutus2.webp"
 import BannerImage3 from "../assets/Images/aboutus3.webp"
 import TimelineImage from "../assets/Images/TimelineImage.png"
 import Footer from "../components/Common/Footer.jsx"
-import ReviewSlider from "../components/Common/ReviewSlider.jsx"
 import ContactFormSection from "../components/core/AboutPage/ContactFormSection.jsx"
 import LearningGrid from "../components/core/AboutPage/LearningGrid.jsx"
 import StatsComponenet from "../components/core/AboutPage/Stats.jsx"
@@ -54,7 +53,7 @@ const About = () => {
             </div>
           </nav>
         </div>
-        <section className="relative w-[100vw] h-[82%] ">
+        <div className="relative w-[100vw] h-[82%] ">
           <img src={BannerImage3} className=" absolute z-0 w-[100%] h-[100%] brightness-50" alt="bannerimg" />
           <div className="absolute w-[100%] h-[100%] bg-[black] opacity-[0.6]">
             <ul className="absolute left-[70px] text-[white] top-[200px] w-[20%] h-[20%] bg-transparent">
@@ -65,7 +64,7 @@ const About = () => {
               </li>
             </ul>
           </div>
-        </section>
+        </div>
       </section>
 
       <section className="w-[100vw] h-[40rem] bg-[whitesmoke]">
