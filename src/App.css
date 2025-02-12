@@ -265,7 +265,7 @@ details>summary::-webkit-details-marker {
 }
 
 .lable-style {
-  @apply text-[14px] text-richblack-5;
+  @apply text-[14px] text-richblack-800 font-black;
 }
 
 .form-style {
