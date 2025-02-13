@@ -22,7 +22,7 @@ function Dashboard() {
   }
 
   return (
-    <div className="relative flex pt-7 bg-richblack-5 min-h-[calc(100vh-3.5rem)] flex-col md:flex-row">
+    <div className="relative flex py-10 bg-richblack-5 min-h-[calc(100vh-3.5rem)] flex-col md:flex-row">
       {/* Sidebar - Hidden on mobile, shown on medium (md) and larger screens */}
       <aside className="hidden md:block">
         <Sidebar />
@@ -48,7 +48,7 @@ function Dashboard() {
 
       {/* Main content area */}
       <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto px-4 md:px-8">
-        <div className="mx-auto w-full max-w-[1000px] py-10">
+        <div className="mx-auto w-full max-w-[1000px] py-8">
           <Outlet />
         </div>
       </div>
