@@ -16,7 +16,7 @@ export default function SidebarLink({ link, iconName }) {
       onClick={() => dispatch(resetCourseState())}
       className={`relative flex items-center gap-x-3 px-6 py-3 rounded-md text-sm font-medium
         transition-all duration-200 bg-white shadow-md hover:shadow-lg hover:shadow-black
-        ${matchRoute(link.path) ? "bg-black text-white" : "text-richblack-900"}
+        ${matchRoute(link.path) ? "bg-[black] text-white" : "text-richblack-900"}
       `}
     >
       {/* Sidebar Indicator */}
