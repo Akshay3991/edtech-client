@@ -22,7 +22,7 @@ function Dashboard() {
   }
 
   return (
-    <div className="relative flex min-h-[calc(100vh-3.5rem)] flex-col md:flex-row">
+    <div className="relative flex pt-7 min-h-[calc(100vh-3.5rem)] flex-col md:flex-row">
       {/* Sidebar - Hidden on mobile, shown on medium (md) and larger screens */}
       <aside className="hidden md:block">
         <Sidebar />
@@ -32,7 +32,7 @@ function Dashboard() {
       <div className="md:hidden absolute top-4 left-4 z-50">
         <button
           onClick={toggleSidebar} // Implement a state-based toggle function
-          className="p-2 bg-gray-800 text-white rounded"
+          className="p-2 bg-[whitesmoke] text-[white] rounded"
         >
           ☰
         </button>
@@ -40,7 +40,7 @@ function Dashboard() {
 
       {/* Sidebar for mobile (absolute positioning) */}
       <aside
-        className={`absolute top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`absolute top-0 left-0 h-full w-64 bg-[white] shadow-lg transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } md:hidden`}
       >
         <Sidebar />
