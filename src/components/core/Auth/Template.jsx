@@ -8,7 +8,7 @@ function Template({ title, description1, description2, image, formType }) {
   const { loading } = useSelector((state) => state.auth)
 
   return (
-    <div className="flex min-h-screen  w-full items-center justify-center bg-[white] px-4 sm:px-6 lg:px-12">
+    <div className="flex min-h-screen pt-6 sm:pt-0  w-full items-center justify-center bg-[whitesmoke] px-4 sm:px-6 lg:px-12">
       {loading ? (
         <div className="spinner"></div>
       ) : (
@@ -28,14 +28,14 @@ function Template({ title, description1, description2, image, formType }) {
           </div>
 
           {/* Right Image Container */}
-          <div className="relative hidden w-full max-w-[90%] rounded-[20px] bg-white shadow-xl shadow-black md:w-1/2 md:max-w-[35vw] lg:h-[60vh] animate-float">
+          <div className="w-full max-w-[90%] h-[45vh] rounded-[20px] bg-white shadow-xl shadow-black md:w-1/2 md:max-w-[35vw] lg:h-[60vh] animate-float">
             <img
               src={frameImg}
               alt="Pattern"
               width={558}
               height={504}
               loading="lazy"
-              className="absolute top-1/2 left-1/2 w-full max-w-full rounded-[20px] transform -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-1/2 left-1/2  max-w-full rounded-[20px] transform -translate-x-1/2 -translate-y-1/2"
             />
             <img
               src={image}

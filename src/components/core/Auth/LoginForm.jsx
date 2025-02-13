@@ -32,10 +32,10 @@ function LoginForm() {
   return (
     <form
       onSubmit={handleOnSubmit}
-      className="sm:mt-6 flex w-full flex-col gap-y-4"
+      className="mt-2 sm:mt-6 flex w-full flex-col gap-y-4"
     >
       <label className="w-full">
-        <p className="mb-1 text-[0.875rem] font-black text-[whitesmoke]">
+        <p className="mb-1 text-[0.875rem] font-black text-[black]">
           Email Address <sup className="text-pink-200">*</sup>
         </p>
         <input
@@ -49,7 +49,7 @@ function LoginForm() {
         />
       </label>
       <label className="relative">
-        <p className="mb-1 text-[0.875rem] font-black text-[whitesmoke]">
+        <p className="mb-1 text-[0.875rem] font-black text-[black]">
           Password <sup className="text-pink-400">*</sup>
         </p>
         <input

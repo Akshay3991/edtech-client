@@ -86,10 +86,10 @@ function SignupForm() {
       {/* Tab */}
       <Tab tabData={tabData} field={accountType} setField={setAccountType} />
       {/* Form */}
-      <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-4">
+      <form onSubmit={handleOnSubmit} className="flex w-full flex-col gap-y-1 sm:gap-y-4">
         <div className="flex gap-x-4">
           <label>
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] font-black text-black">
               First Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -103,7 +103,7 @@ function SignupForm() {
             />
           </label>
           <label>
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black font-black">
               Last Name <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -118,7 +118,7 @@ function SignupForm() {
           </label>
         </div>
         <label className="w-full">
-          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+          <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black font-black">
             Email Address <sup className="text-pink-200">*</sup>
           </p>
           <input
@@ -133,7 +133,7 @@ function SignupForm() {
         </label>
         <div className="flex gap-x-4">
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black font-black">
               Create Password <sup className="text-pink-200">*</sup>
             </p>
             <input
@@ -157,7 +157,7 @@ function SignupForm() {
             </span>
           </label>
           <label className="relative">
-            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
+            <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-black font-black">
               Confirm Password <sup className="text-pink-200">*</sup>
             </p>
             <input
