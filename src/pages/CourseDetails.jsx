@@ -4,7 +4,6 @@ import { HiOutlineGlobeAlt } from "react-icons/hi"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
-
 import ConfirmationModal from "../components/Common/ConfirmationModal.jsx"
 import Footer from "../components/Common/Footer.jsx"
 import RatingStars from "../components/Common/RatingStars.jsx"
@@ -33,7 +32,7 @@ function CourseDetails() {
   const [confirmationModal, setConfirmationModal] = useState(null)
   useEffect(() => {
     // Calling fetchCourseDetails fucntion to fetch the details
-    ;(async () => {
+    ; (async () => {
       try {
         const res = await fetchCourseDetails(courseId)
         // console.log("course details res: ", res)
