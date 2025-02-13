@@ -48,7 +48,7 @@ export default function Sidebar() {
           } md:translate-x-0`}
       >
         {/* Sidebar Links */}
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-2">
           {sidebarLinks.map((link) => {
             if (link.type && user?.accountType !== link.type) return null;
             return <SidebarLink key={link.id} link={link} iconName={link.icon} />;
