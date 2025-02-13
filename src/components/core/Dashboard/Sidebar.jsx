@@ -26,7 +26,7 @@ export default function Sidebar() {
 
   if (profileLoading || authLoading) {
     return (
-      <div className="grid h-[calc(100vh-3.5rem)] min-w-[220px] items-center bg-gray-100">
+      <div className="grid h-[calc(100vh-3.5rem)] min-w-[220px] items-center bg-[whitesmoke">
         <div className="spinner"></div>
       </div>
     );
@@ -37,14 +37,14 @@ export default function Sidebar() {
       {/* Sidebar Toggle Button for Mobile */}
       <button
         onClick={toggleSidebar}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded"
+        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 text-[white] rounded"
       >
         ☰
       </button>
 
       {/* Sidebar - Mobile (Sliding Drawer) & Desktop (Fixed) */}
       <div
-        className={`fixed md:relative flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] flex-col bg-gray-100 py-10 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed md:relative flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] flex-col bg-[whitesmoke] py-10 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } md:translate-x-0`}
       >
         {/* Sidebar Links */}
@@ -56,7 +56,7 @@ export default function Sidebar() {
         </div>
 
         {/* Divider (Optional - Can be removed if needed) */}
-        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-gray-300" />
+        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-[whitesmoke]" />
 
         {/* Settings & Logout Buttons */}
         <div className="flex flex-col">
