@@ -96,7 +96,7 @@ export default function Sidebar() {
       {/* Overlay for Mobile Sidebar */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 md:hidden"
+          className="fixed inset-0 bg-[black] bg-opacity-50 md:hidden"
           onClick={toggleSidebar}
         />
       )}

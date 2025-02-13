@@ -24,7 +24,7 @@ function Dashboard() {
   return (
     <div className="relative flex py-10 bg-[whitesmoke] min-h-[calc(100vh-3.5rem)] flex-col md:flex-row">
       {/* Sidebar - Hidden on mobile, shown on medium (md) and larger screens */}
-      <aside className="hidden md:block">
+      <aside className="hidden md:block pt-5">
         <Sidebar />
       </aside>
 
