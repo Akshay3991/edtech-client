@@ -37,14 +37,14 @@ export default function Sidebar() {
       {/* Sidebar Toggle Button for Mobile */}
       <button
         onClick={toggleSidebar}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white text-[red] rounded"
+        className="md:hidden fixed top-4 left-4 z-50 p-2  rounded"
       >
         ☰
       </button>
 
       {/* Sidebar - Mobile (Sliding Drawer) & Desktop (Fixed) */}
       <div
-        className={`fixed md:relative flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] bg-[#e71919] flex-col  py-10 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed md:relative flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] bg-[whitesmoke] flex-col  py-10 transition-transform transform ${isSidebarOpen ? "translate-x-0 bg-[red]" : "-translate-x-full"
           } md:translate-x-0`}
       >
         {/* Sidebar Links */}
@@ -56,7 +56,7 @@ export default function Sidebar() {
         </div>
 
         {/* Divider (Optional - Can be removed if needed) */}
-        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-[whitesmoke]" />
+        {/* <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-[whitesmoke]" /> */}
 
         {/* Settings & Logout Buttons */}
         <div className="flex flex-col">
@@ -87,7 +87,7 @@ export default function Sidebar() {
         {/* Close Button for Mobile Sidebar */}
         <button
           onClick={toggleSidebar}
-          className="absolute top-4 right-4 md:hidden text-gray-800 text-2xl"
+          className="absolute top-4 right-4 md:hidden  text-2xl"
         >
           ✕
         </button>
@@ -96,7 +96,7 @@ export default function Sidebar() {
       {/* Overlay for Mobile Sidebar */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0  md:hidden"
+          className="fixed inset-0  opacity-50  md:hidden"
           onClick={toggleSidebar}
         />
       )}
