@@ -44,7 +44,7 @@ export default function Sidebar() {
 
       {/* Sidebar - Mobile (Sliding Drawer) & Desktop (Fixed) */}
       <div
-        className={`fixed md:relative flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] bg-[whitesmoke] flex-col  py-10 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed md:relative flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] bg-[#e71919] flex-col  py-10 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } md:translate-x-0`}
       >
         {/* Sidebar Links */}
