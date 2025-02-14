@@ -94,12 +94,12 @@ export default function Sidebar() {
       </div>
 
       {/* Overlay for Mobile Sidebar */}
-      {/* {isSidebarOpen && (
+      {isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black/50 backdrop-blur-sm md:hidden"
           onClick={toggleSidebar}
         />
-      )} */}
+      )}
 
       {confirmationModal && <ConfirmationModal modalData={confirmationModal} />}
     </>
