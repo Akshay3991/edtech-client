@@ -35,12 +35,14 @@ export default function Sidebar() {
   return (
     <>
       {/* Sidebar Toggle Button for Mobile */}
-      <button
-        onClick={toggleSidebar}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition-colors"
-      >
-        ☰
-      </button>
+      <div className="bg-[red] w-full">
+        <button
+          onClick={toggleSidebar}
+          className="md:hidden fixed top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700"
+        >
+          ☰
+        </button>
+      </div>
 
       {/* Sidebar - Mobile (Sliding Drawer) & Desktop (Fixed) */}
       <div
@@ -92,12 +94,12 @@ export default function Sidebar() {
       </div>
 
       {/* Overlay for Mobile Sidebar */}
-      {isSidebarOpen && (
+      {/* {isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black/50 backdrop-blur-sm md:hidden"
           onClick={toggleSidebar}
         />
-      )}
+      )} */}
 
       {confirmationModal && <ConfirmationModal modalData={confirmationModal} />}
     </>
