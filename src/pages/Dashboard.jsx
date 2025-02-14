@@ -22,7 +22,9 @@ function Dashboard() {
   }
 
   return (
-    <div className="relative flex py-10 bg-[whitesmoke] min-h-[calc(100vh-3.5rem)] flex-col md:flex-row">
+    <div className="relative flex py-10 bg-[whitesmoke] min-h-[calc(100vh-3.5rem)] flex-col md:flex-row"
+      onClick={setSidebarOpen(false)}
+    >
       {/* Sidebar - Hidden on mobile, shown on medium (md) and larger screens */}
       <aside className="hidden md:block pt-3">
         <Sidebar />
@@ -37,13 +39,6 @@ function Dashboard() {
         >
           ☰
         </button>
-        {/* Close Button for Mobile Sidebar */}
-        {/* <button
-          onClick={toggleSidebar}
-          className="absolute top-4 right-4 md:hidden text-white text-2xl hover:text-gray-300 transition-colors"
-        >
-          ✕
-        </button> */}
       </div>
 
       {/* Sidebar for mobile (absolute positioning) */}
