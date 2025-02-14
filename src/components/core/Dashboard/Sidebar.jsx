@@ -37,7 +37,7 @@ export default function Sidebar() {
       {/* Sidebar Toggle Button for Mobile */}
       <button
         onClick={toggleSidebar}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 text-[red] rounded"
+        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white text-[red] rounded"
       >
         ☰
       </button>
@@ -96,7 +96,7 @@ export default function Sidebar() {
       {/* Overlay for Mobile Sidebar */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-[black] bg-opacity-50 md:hidden"
+          className="fixed inset-0 bg-[#ad1111] bg-opacity-50 md:hidden"
           onClick={toggleSidebar}
         />
       )}
