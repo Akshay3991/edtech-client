@@ -37,18 +37,18 @@ export default function Sidebar() {
       {/* Sidebar Toggle Button for Mobile */}
       <button
         onClick={toggleSidebar}
-        className="md:hidden fixed top-4 left-4 z-50 p-2  rounded"
+        className="md:hidden fixed top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition-colors"
       >
         ☰
       </button>
 
       {/* Sidebar - Mobile (Sliding Drawer) & Desktop (Fixed) */}
       <div
-        className={`fixed md:relative flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] bg-[whitesmoke] flex-col  py-10 transition-transform transform ${isSidebarOpen ? "translate-x-0 bg-[red]" : "-translate-x-full"
-          } md:translate-x-0`}
+        className={`fixed md:relative flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] bg-gradient-to-b from-blue-600 to-blue-800 flex-col py-10 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } md:translate-x-0 shadow-2xl`}
       >
         {/* Sidebar Links */}
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 px-4">
           {sidebarLinks.map((link) => {
             if (link.type && user?.accountType !== link.type) return null;
             return <SidebarLink key={link.id} link={link} iconName={link.icon} />;
@@ -56,10 +56,10 @@ export default function Sidebar() {
         </div>
 
         {/* Divider (Optional - Can be removed if needed) */}
-        {/* <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-[whitesmoke]" /> */}
+        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-white/20" />
 
         {/* Settings & Logout Buttons */}
-        <div className="flex flex-col">
+        <div className="flex flex-col px-4">
           <SidebarLink
             link={{ name: "Settings", path: "/dashboard/settings" }}
             iconName="VscSettingsGear"
@@ -75,19 +75,17 @@ export default function Sidebar() {
                 btn2Handler: () => setConfirmationModal(null),
               })
             }
-            className="px-8 py-2 text-sm font-medium text-gray-700"
+            className="px-8 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-colors flex items-center gap-x-2"
           >
-            <div className="flex items-center gap-x-2">
-              <VscSignOut className="text-lg" />
-              <span>Logout</span>
-            </div>
+            <VscSignOut className="text-lg" />
+            <span>Logout</span>
           </button>
         </div>
 
         {/* Close Button for Mobile Sidebar */}
         <button
           onClick={toggleSidebar}
-          className="absolute top-4 right-4 md:hidden  text-2xl"
+          className="absolute top-4 right-4 md:hidden text-white text-2xl hover:text-gray-300 transition-colors"
         >
           ✕
         </button>
@@ -96,7 +94,7 @@ export default function Sidebar() {
       {/* Overlay for Mobile Sidebar */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0  opacity-50  md:hidden"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm md:hidden"
           onClick={toggleSidebar}
         />
       )}
