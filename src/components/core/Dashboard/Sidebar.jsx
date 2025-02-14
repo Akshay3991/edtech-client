@@ -17,13 +17,6 @@ export default function Sidebar() {
   // State for confirmation modal
   const [confirmationModal, setConfirmationModal] = useState(null);
 
-  // State for sidebar toggle
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
-
   if (profileLoading || authLoading) {
     return (
       <div className="grid h-[calc(100vh-3.5rem)] min-w-[220px] items-center bg-[whitesmoke]">
@@ -34,20 +27,9 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Sidebar Toggle Button for Mobile */}
-      <div className="bg-[red] w-full">
-        <button
-          onClick={toggleSidebar}
-          className="md:hidden fixed top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700"
-        >
-          ☰
-        </button>
-      </div>
 
-      {/* Sidebar - Mobile (Sliding Drawer) & Desktop (Fixed) */}
       <div
-        className={`fixed md:relative flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] bg-gradient-to-b from-blue-600 to-blue-800 flex-col py-10 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } md:translate-x-0 shadow-2xl`}
+        className={`flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] bg-gradient-to-b from-blue-600 to-blue-800 flex-col py-10  shadow-2xl`}
       >
         {/* Sidebar Links */}
         <div className="flex flex-col gap-2 px-4">
@@ -84,22 +66,8 @@ export default function Sidebar() {
           </button>
         </div>
 
-        {/* Close Button for Mobile Sidebar */}
-        <button
-          onClick={toggleSidebar}
-          className="absolute top-4 right-4 md:hidden text-white text-2xl hover:text-gray-300 transition-colors"
-        >
-          ✕
-        </button>
-      </div>
 
-      {/* Overlay for Mobile Sidebar */}
-      {isSidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm md:hidden"
-          onClick={toggleSidebar}
-        />
-      )}
+      </div>
 
       {confirmationModal && <ConfirmationModal modalData={confirmationModal} />}
     </>
