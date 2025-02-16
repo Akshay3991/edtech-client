@@ -29,7 +29,7 @@ function Dashboard() {
       </aside>
 
       {/* Sidebar toggle button for mobile */}
-      <div className="md:hidden absolute w-full bg-[white]  top-10 left-4 z-50">
+      <div className="md:hidden absolute w-full bg-[white]  top-1 left-4 z-50">
         {/* Sidebar Toggle Button for Mobile */}
         <button
           onClick={toggleSidebar}
