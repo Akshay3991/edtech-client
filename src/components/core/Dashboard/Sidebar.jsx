@@ -29,7 +29,7 @@ export default function Sidebar() {
     <>
 
       <div
-        className={`flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] bg-gradient-to-b from-blue-600 to-blue-800 flex-col py-10  shadow-2xl`}
+        className={`flex h-full md:h-[calc(100vh-3.5rem)] min-w-[220px] bg-gradient-to-b from-[white] to-[whitesmoke] flex-col py-10  shadow-2xl`}
       >
         {/* Sidebar Links */}
         <div className="flex flex-col gap-2 px-4">
@@ -59,7 +59,7 @@ export default function Sidebar() {
                 btn2Handler: () => setConfirmationModal(null),
               })
             }
-            className="px-8 py-2 text-sm font-medium text-white hover:bg-white/10 rounded-lg transition-colors flex items-center gap-x-2"
+            className="px-8 py-2 text-sm font-medium text-black hover:bg-white/10 rounded-lg transition-colors flex items-center gap-x-2"
           >
             <VscSignOut className="text-lg" />
             <span>Logout</span>
