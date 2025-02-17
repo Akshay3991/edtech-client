@@ -24,7 +24,7 @@ export default function MyProfile() {
             <p className="text-lg uppercase font-extrabold text-gray-900">
               {user?.firstName + " " + user?.lastName}
             </p>
-            <p className="text-sm font-normal text-gray-600">{user?.email}</p>
+            <p className="text-sm font-normal italic text-gray-600">{user?.email}</p>
           </div>
         </div>
         <IconBtn
@@ -36,15 +36,15 @@ export default function MyProfile() {
       </div>
 
       {/* About Section */}
-      <div className="mt-8 bg-white shadow-md rounded-lg p-6 md:p-8">
+      <div className="mt-8 bg-white font-sans shadow-md rounded-lg p-6 md:p-8">
         <div className="flex justify-between items-center">
-          <p className="text-lg font-semibold text-gray-900">About</p>
+          <p className="text-xl font-semibold text-black">About</p>
           <IconBtn text="Edit" onclick={() => navigate("/dashboard/settings")}>
             <RiEditBoxLine />
           </IconBtn>
         </div>
         <p
-          className={`mt-4 text-sm font-medium ${user?.additionalDetails?.about ? "text-gray-900" : "text-gray-500"
+          className={`mt-4 text-sm italic  font-medium ${user?.additionalDetails?.about ? "text-gray-900" : "text-gray-500"
             }`}
         >
           {user?.additionalDetails?.about ?? "Write Something About Yourself"}
