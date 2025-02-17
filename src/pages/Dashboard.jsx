@@ -33,9 +33,9 @@ function Dashboard() {
         {/* Sidebar Toggle Button for Mobile */}
         <button
           onClick={toggleSidebar}
-          className="md:hidden fixed  p-1 w-[100%] bg-[white] text-black font-black rounded-lg shadow-lg hover:bg-blue-700"
+          className="md:hidden fixed  p-1 w-[90%] mx-auto text-start bg-[white] text-black font-black rounded-lg shadow-lg hover:bg-blue-700"
         >
-
+          ☰
         </button>
       </div>
 
