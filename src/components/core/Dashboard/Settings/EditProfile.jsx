@@ -40,7 +40,7 @@ export default function EditProfile() {
               type="text"
               id="firstName"
               placeholder="Enter first name"
-              className="p-2 rounded-md bg-[white] shadow-richblack-800"
+              className="p-2 rounded-md bg-[white] shadow-md shadow-richblack-800"
               {...register("firstName", { required: true })}
               defaultValue={user?.firstName}
             />
@@ -53,7 +53,7 @@ export default function EditProfile() {
               type="text"
               id="lastName"
               placeholder="Enter last name"
-              className="p-2 rounded-md  bg-[white] shadow-richblack-800"
+              className="p-2 rounded-md  bg-[white] shadow-md shadow-richblack-800"
               {...register("lastName", { required: true })}
               defaultValue={user?.lastName}
             />
@@ -68,7 +68,7 @@ export default function EditProfile() {
             <input
               type="date"
               id="dateOfBirth"
-              className="p-2 rounded-md  bg-[white] shadow-richblack-800"
+              className="p-2 rounded-md  bg-[white] shadow-md shadow-richblack-800"
               {...register("dateOfBirth", {
                 required: "Please enter your Date of Birth.",
                 max: { value: new Date().toISOString().split("T")[0], message: "Date of Birth cannot be in the future." }
@@ -82,7 +82,7 @@ export default function EditProfile() {
             <label htmlFor="gender" className="text-gray-700 font-bold">Gender</label>
             <select
               id="gender"
-              className="p-2 rounded-md  bg-[white] shadow-richblack-800"
+              className="p-2 rounded-md  bg-[white] shadow-md shadow-richblack-800"
               {...register("gender", { required: true })}
               defaultValue={user?.additionalDetails?.gender}
             >
@@ -102,7 +102,7 @@ export default function EditProfile() {
               type="tel"
               id="contactNumber"
               placeholder="Enter Contact Number"
-              className="p-2 rounded-md bg-[white] shadow-richblack-800"
+              className="p-2 rounded-md bg-[white]  shadow-md shadow-richblack-800"
               {...register("contactNumber", {
                 required: "Please enter your Contact Number.",
                 minLength: { value: 10, message: "Invalid Contact Number" },
