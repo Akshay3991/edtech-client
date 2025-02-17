@@ -13,12 +13,12 @@ export default function MyProfile() {
       <h1 className="mb-8 text-2xl font-black font-sans">My Profile</h1>
 
       {/* Profile Section */}
-      <div className="flex flex-col  md:flex-row items-center justify-between bg-white shadow-md rounded-lg  md:p-8">
-        <div className="flex items-center gap-x-4 p-6 md:p-0">
+      <div className="flex flex-col  md:flex-row items-center justify-between bg-white shadow-md rounded-lg p-6 md:p-8">
+        <div className="flex items-center gap-x-4 ">
           <img
             src={user?.image}
             alt={`profile-${user?.firstName}`}
-            className="w-[70px] h-[70px] md:w-[78px] md:h-[78px] rounded-full object-cover shadow-md shadow-black"
+            className="w-[60px] h-[60px] md:w-[78px] md:h-[78px] rounded-full object-cover shadow-md shadow-black"
           />
           <div className="space-y-1">
             <p className="text-lg uppercase font-extrabold text-gray-900">
@@ -65,19 +65,19 @@ export default function MyProfile() {
           {/* Column 1 */}
           <div className="space-y-5">
             <div>
-              <p className="text-sm text-black">First Name</p>
-              <p className="text-sm uppercase font-medium text-gray-900">
+              <p className="text-sm font-bold text-black">First Name</p>
+              <p className="text-sm uppercase font-normal text-gray-900">
                 {user?.firstName}
               </p>
             </div>
             <div>
-              <p className="text-sm text-black">Email</p>
+              <p className="text-sm font-bold text-black">Email</p>
               <p className="text-sm font-medium text-gray-900">
                 {user?.email}
               </p>
             </div>
             <div>
-              <p className="text-sm text-black">Gender</p>
+              <p className="text-sm font-bold text-black">Gender</p>
               <p className="text-sm font-medium text-gray-900">
                 {user?.additionalDetails?.gender ?? "Add Gender"}
               </p>
@@ -87,19 +87,19 @@ export default function MyProfile() {
           {/* Column 2 */}
           <div className="space-y-5">
             <div>
-              <p className="text-sm text-black">Last Name</p>
+              <p className="text-sm font-bold text-black">Last Name</p>
               <p className="text-sm font-medium text-gray-900">
                 {user?.lastName}
               </p>
             </div>
             <div>
-              <p className="text-sm text-black">Phone Number</p>
+              <p className="text-sm font-bold text-black">Phone Number</p>
               <p className="text-sm font-medium text-gray-900">
                 {user?.additionalDetails?.contactNumber ?? "Add Contact Number"}
               </p>
             </div>
             <div>
-              <p className="text-sm text-black">Date Of Birth</p>
+              <p className="text-sm font-bold text-black">Date Of Birth</p>
               <p className="text-sm font-medium text-gray-900">
                 {formattedDate(user?.additionalDetails?.dateOfBirth) ??
                   "Add Date Of Birth"}
