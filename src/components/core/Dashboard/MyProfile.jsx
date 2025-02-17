@@ -52,9 +52,9 @@ export default function MyProfile() {
       </div>
 
       {/* Personal Details Section */}
-      <div className="mt-8 bg-white shadow-md rounded-lg p-6 md:p-8">
+      <div className="mt-8 bg-white shadow-md font-sans rounded-lg p-6 md:p-8">
         <div className="flex justify-between items-center">
-          <p className="text-lg font-semibold text-gray-900">Personal Details</p>
+          <p className="text-lg font-semibold text-black">Personal Details</p>
           <IconBtn text="Edit" onclick={() => navigate("/dashboard/settings")}>
             <RiEditBoxLine />
           </IconBtn>
@@ -65,19 +65,19 @@ export default function MyProfile() {
           {/* Column 1 */}
           <div className="space-y-5">
             <div>
-              <p className="text-sm text-gray-500">First Name</p>
-              <p className="text-sm font-medium text-gray-900">
+              <p className="text-sm text-black">First Name</p>
+              <p className="text-sm uppercase font-medium text-gray-900">
                 {user?.firstName}
               </p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Email</p>
+              <p className="text-sm text-black">Email</p>
               <p className="text-sm font-medium text-gray-900">
                 {user?.email}
               </p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Gender</p>
+              <p className="text-sm text-black">Gender</p>
               <p className="text-sm font-medium text-gray-900">
                 {user?.additionalDetails?.gender ?? "Add Gender"}
               </p>
@@ -87,19 +87,19 @@ export default function MyProfile() {
           {/* Column 2 */}
           <div className="space-y-5">
             <div>
-              <p className="text-sm text-gray-500">Last Name</p>
+              <p className="text-sm text-black">Last Name</p>
               <p className="text-sm font-medium text-gray-900">
                 {user?.lastName}
               </p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Phone Number</p>
+              <p className="text-sm text-black">Phone Number</p>
               <p className="text-sm font-medium text-gray-900">
                 {user?.additionalDetails?.contactNumber ?? "Add Contact Number"}
               </p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Date Of Birth</p>
+              <p className="text-sm text-black">Date Of Birth</p>
               <p className="text-sm font-medium text-gray-900">
                 {formattedDate(user?.additionalDetails?.dateOfBirth) ??
                   "Add Date Of Birth"}
