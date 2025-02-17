@@ -80,7 +80,7 @@ export default function UpdatePassword() {
         <button
           type="button"
           onClick={() => navigate("/dashboard/my-profile")}
-          className="px-5 py-2 rounded-md bg-gray-300 hover:bg-gray-400 text-gray-900 font-semibold"
+          className="px-5 py-2 rounded-md bg-[white] hover:bg-gray-400 text-gray-900 font-semibold"
         >
           Cancel
         </button>
