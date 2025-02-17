@@ -10,7 +10,7 @@ export default function MyProfile() {
 
   return (
     <div className="p-6 md:p-10 bg-gray-100 min-h-screen">
-      <h1 className="mb-10 text-3xl font-medium text-gray-900">My Profile</h1>
+      <h1 className="mb-8 text-2xl font-black font-sans">My Profile</h1>
 
       {/* Profile Section */}
       <div className="flex flex-col md:flex-row items-center justify-between bg-white shadow-md rounded-lg p-6 md:p-8">
@@ -18,13 +18,13 @@ export default function MyProfile() {
           <img
             src={user?.image}
             alt={`profile-${user?.firstName}`}
-            className="w-[78px] h-[78px] rounded-full object-cover shadow-md shadow-black"
+            className="w-[70px] h-[70px] md:w-[78px] md:h-[78px] rounded-full object-contain shadow-md shadow-black"
           />
           <div className="space-y-1">
-            <p className="text-lg font-semibold text-gray-900">
+            <p className="text-lg uppercase font-extrabold text-gray-900">
               {user?.firstName + " " + user?.lastName}
             </p>
-            <p className="text-sm text-gray-600">{user?.email}</p>
+            <p className="text-sm font-normal text-gray-600">{user?.email}</p>
           </div>
         </div>
         <IconBtn
