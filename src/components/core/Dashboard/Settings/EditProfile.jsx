@@ -29,8 +29,8 @@ export default function EditProfile() {
   return (
     <form onSubmit={handleSubmit(submitProfileForm)} className="space-y-6">
       {/* Profile Information */}
-      <div className="my-10 flex flex-col gap-y-6 rounded-md bg-gray-100 shadow-md hover:shadow-lg p-8">
-        <h2 className="text-lg font-semibold text-gray-900">Profile Information</h2>
+      <div className="my-10 flex flex-col gap-y-6 rounded-md bg-[white] shadow-md shadow-pure-greys-300 hover:shadow-lg p-8">
+        <h2 className="text-lg font-bold text-gray-900">Profile Information</h2>
 
         {/* Name Fields */}
         <div className="flex flex-col gap-5 md:flex-row">
@@ -40,11 +40,11 @@ export default function EditProfile() {
               type="text"
               id="firstName"
               placeholder="Enter first name"
-              className="p-2 rounded-md border border-gray-300"
+              className="p-2 rounded-md"
               {...register("firstName", { required: true })}
               defaultValue={user?.firstName}
             />
-            {errors.firstName && <span className="text-red-500 text-sm">Please enter your first name.</span>}
+            {errors.firstName && <span className="text-[#f70f0f] text-sm">Please enter your first name.</span>}
           </div>
 
           <div className="flex flex-col gap-2 md:w-1/2">
@@ -53,11 +53,11 @@ export default function EditProfile() {
               type="text"
               id="lastName"
               placeholder="Enter last name"
-              className="p-2 rounded-md border border-gray-300"
+              className="p-2 rounded-md "
               {...register("lastName", { required: true })}
               defaultValue={user?.lastName}
             />
-            {errors.lastName && <span className="text-red-500 text-sm">Please enter your last name.</span>}
+            {errors.lastName && <span className="text-[#f70f0f] text-sm">Please enter your last name.</span>}
           </div>
         </div>
 
@@ -68,21 +68,21 @@ export default function EditProfile() {
             <input
               type="date"
               id="dateOfBirth"
-              className="p-2 rounded-md border border-gray-300"
+              className="p-2 rounded-md "
               {...register("dateOfBirth", {
                 required: "Please enter your Date of Birth.",
                 max: { value: new Date().toISOString().split("T")[0], message: "Date of Birth cannot be in the future." }
               })}
               defaultValue={user?.additionalDetails?.dateOfBirth}
             />
-            {errors.dateOfBirth && <span className="text-red-500 text-sm">{errors.dateOfBirth.message}</span>}
+            {errors.dateOfBirth && <span className="text-[#f70f0f] text-sm">{errors.dateOfBirth.message}</span>}
           </div>
 
           <div className="flex flex-col gap-2 md:w-1/2">
             <label htmlFor="gender" className="text-gray-700">Gender</label>
             <select
               id="gender"
-              className="p-2 rounded-md border border-gray-300"
+              className="p-2 rounded-md "
               {...register("gender", { required: true })}
               defaultValue={user?.additionalDetails?.gender}
             >
@@ -90,7 +90,7 @@ export default function EditProfile() {
                 <option key={index} value={gender}>{gender}</option>
               ))}
             </select>
-            {errors.gender && <span className="text-red-500 text-sm">Please select your gender.</span>}
+            {errors.gender && <span className="text-[#f70f0f] text-sm">Please select your gender.</span>}
           </div>
         </div>
 
@@ -102,7 +102,7 @@ export default function EditProfile() {
               type="tel"
               id="contactNumber"
               placeholder="Enter Contact Number"
-              className="p-2 rounded-md border border-gray-300"
+              className="p-2 rounded-md "
               {...register("contactNumber", {
                 required: "Please enter your Contact Number.",
                 minLength: { value: 10, message: "Invalid Contact Number" },
@@ -110,7 +110,7 @@ export default function EditProfile() {
               })}
               defaultValue={user?.additionalDetails?.contactNumber}
             />
-            {errors.contactNumber && <span className="text-red-500 text-sm">{errors.contactNumber.message}</span>}
+            {errors.contactNumber && <span className="text-[#f70f0f] text-sm">{errors.contactNumber.message}</span>}
           </div>
 
           <div className="flex flex-col gap-2 md:w-1/2">
@@ -118,11 +118,11 @@ export default function EditProfile() {
             <textarea
               id="about"
               placeholder="Enter Bio Details"
-              className="p-2 rounded-md border border-gray-300 h-24 resize-none"
+              className="p-2 rounded-md  h-24 resize-none"
               {...register("about", { required: true })}
               defaultValue={user?.additionalDetails?.about}
             />
-            {errors.about && <span className="text-red-500 text-sm">Please enter something about yourself.</span>}
+            {errors.about && <span className="text-[#f70f0f] text-sm">Please enter something about yourself.</span>}
           </div>
         </div>
       </div>
@@ -132,7 +132,7 @@ export default function EditProfile() {
         <button
           type="button"
           onClick={() => navigate("/dashboard/my-profile")}
-          className="px-5 py-2 rounded-md bg-gray-300 hover:bg-gray-400 text-gray-900 font-semibold"
+          className="px-5 py-2 rounded-md bg-[white] hover:bg-gray-400 text-gray-900 font-semibold"
         >
           Cancel
         </button>
