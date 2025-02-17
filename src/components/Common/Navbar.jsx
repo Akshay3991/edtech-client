@@ -46,7 +46,7 @@ function Navbar() {
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2">
         <img src={logo} alt="Logo" width="40" height="40" loading="lazy" className="p-1" />
-        <span className="font-black font-sans text-[23px]">Education<i className="text-[#fc2146]">Mart</i></span>
+        <span className="font-black font-sans text-[20px]">Education<i className="text-[#fc2146]">Mart</i></span>
       </Link>
 
       {/* Navigation Links - Hidden in Mobile */}
