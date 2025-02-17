@@ -13,12 +13,12 @@ export default function MyProfile() {
       <h1 className="mb-8 text-2xl font-black font-sans">My Profile</h1>
 
       {/* Profile Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between bg-white shadow-md rounded-lg p-6 md:p-8">
+      <div className="flex flex-col  md:flex-row items-center justify-between bg-white shadow-md rounded-lg p-8 md:p-8">
         <div className="flex items-center gap-x-4">
           <img
             src={user?.image}
             alt={`profile-${user?.firstName}`}
-            className="w-[70px] h-[70px] md:w-[78px] md:h-[78px] rounded-full object-contain shadow-md shadow-black"
+            className="w-[70px] h-[70px] md:w-[78px] md:h-[78px] rounded-full object-cover shadow-md shadow-black"
           />
           <div className="space-y-1">
             <p className="text-lg uppercase font-extrabold text-gray-900">
