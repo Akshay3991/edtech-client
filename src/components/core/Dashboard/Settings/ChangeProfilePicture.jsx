@@ -62,10 +62,10 @@ export default function ChangeProfilePicture() {
         <img
           src={previewSource || user?.image}
           alt={`profile-${user?.firstName}`}
-          className="aspect-square w-20 md:w-24 rounded-full object-cover shadow-md"
+          className="aspect-square w-16 md:w-24 rounded-full object-cover shadow-md"
         />
         <div className="space-y-2">
-          <p className="text-gray-800 font-semibold text-lg">Change Profile Picture</p>
+          <p className="text-[#010801] font-black text-lg">Change Profile Picture</p>
           <div className="flex flex-wrap gap-3">
             <input
               type="file"
@@ -77,7 +77,7 @@ export default function ChangeProfilePicture() {
             <button
               onClick={handleClick}
               disabled={loading}
-              className="cursor-pointer rounded-md bg-gray-700 py-2 px-5 font-semibold text-white transition-all duration-300 hover:bg-gray-800"
+              className="cursor-pointer rounded-md bg-gray-700 py-2 px-5 font-bold text-[#0e4407] transition-all duration-300 hover:bg-gray-800"
             >
               Select
             </button>
