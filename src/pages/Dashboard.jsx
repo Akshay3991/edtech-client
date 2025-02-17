@@ -29,7 +29,7 @@ function Dashboard() {
       </aside>
 
       {/* Sidebar toggle button for mobile */}
-      <div className="md:hidden  absolute w-[100vw] bg-[white]  top-[65px] left-2 z-50">
+      <div className="md:hidden  absolute w-[100vw] bg-[white]  top-[65px] left-0 z-50">
         {/* Sidebar Toggle Button for Mobile */}
         <button
           onClick={toggleSidebar}
@@ -41,7 +41,7 @@ function Dashboard() {
 
       {/* Sidebar for mobile (absolute positioning) */}
       <aside
-        className={`absolute top-0 left-0 h-full w-64 bg-[white] pt-[100px] shadow-lg transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`absolute top-0 left-0 h-full w-64 bg-[white] pt-[80px] shadow-lg transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } md:hidden`}
       >
         <Sidebar />
