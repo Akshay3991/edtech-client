@@ -37,7 +37,7 @@ export default function DeleteAccount() {
         {/* Delete Button */}
         <button
           type="button"
-          className="w-fit cursor-pointer italic text-red-500 hover:underline"
+          className="w-fit cursor-pointer italic bg-white text-[#f71010] hover:underline"
           onClick={handleDeleteAccount}
         >
           I want to delete my account.
