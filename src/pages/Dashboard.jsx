@@ -29,11 +29,11 @@ function Dashboard() {
       </aside>
 
       {/* Sidebar toggle button for mobile */}
-      <div className="md:hidden  absolute w-[100vw] bg-[white]  top-16 left-4 z-50">
+      <div className="md:hidden  absolute w-[100vw] bg-[white]  top-20 left-2 z-50">
         {/* Sidebar Toggle Button for Mobile */}
         <button
           onClick={toggleSidebar}
-          className="md:hidden fixed  p-1 w-[90%] mx-auto text-start bg-[white] text-black font-black rounded-lg shadow-lg hover:bg-blue-700"
+          className="md:hidden fixed  p-1  text-start bg-[white] text-black font-black shadow-lg hover:bg-[#fd2246]"
         >
           ☰
         </button>
