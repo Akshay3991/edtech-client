@@ -35,12 +35,12 @@ export default function EditProfile() {
         {/* Name Fields */}
         <div className="flex flex-col gap-5 md:flex-row">
           <div className="flex flex-col gap-2 md:w-1/2">
-            <label htmlFor="firstName" className="text-gray-700">First Name</label>
+            <label htmlFor="firstName" className="text-gray-700 font-bold">First Name</label>
             <input
               type="text"
               id="firstName"
               placeholder="Enter first name"
-              className="p-2 rounded-md"
+              className="p-2 rounded-md bg-[white]"
               {...register("firstName", { required: true })}
               defaultValue={user?.firstName}
             />
@@ -48,12 +48,12 @@ export default function EditProfile() {
           </div>
 
           <div className="flex flex-col gap-2 md:w-1/2">
-            <label htmlFor="lastName" className="text-gray-700">Last Name</label>
+            <label htmlFor="lastName" className="text-gray-700 font-bold">Last Name</label>
             <input
               type="text"
               id="lastName"
               placeholder="Enter last name"
-              className="p-2 rounded-md "
+              className="p-2 rounded-md  bg-[white]"
               {...register("lastName", { required: true })}
               defaultValue={user?.lastName}
             />
@@ -64,11 +64,11 @@ export default function EditProfile() {
         {/* Date of Birth & Gender */}
         <div className="flex flex-col gap-5 md:flex-row">
           <div className="flex flex-col gap-2 md:w-1/2">
-            <label htmlFor="dateOfBirth" className="text-gray-700">Date of Birth</label>
+            <label htmlFor="dateOfBirth" className="text-gray-700 font-bold">Date of Birth</label>
             <input
               type="date"
               id="dateOfBirth"
-              className="p-2 rounded-md "
+              className="p-2 rounded-md  bg-[white]"
               {...register("dateOfBirth", {
                 required: "Please enter your Date of Birth.",
                 max: { value: new Date().toISOString().split("T")[0], message: "Date of Birth cannot be in the future." }
@@ -79,10 +79,10 @@ export default function EditProfile() {
           </div>
 
           <div className="flex flex-col gap-2 md:w-1/2">
-            <label htmlFor="gender" className="text-gray-700">Gender</label>
+            <label htmlFor="gender" className="text-gray-700 font-bold">Gender</label>
             <select
               id="gender"
-              className="p-2 rounded-md "
+              className="p-2 rounded-md  bg-[white]"
               {...register("gender", { required: true })}
               defaultValue={user?.additionalDetails?.gender}
             >
@@ -97,12 +97,12 @@ export default function EditProfile() {
         {/* Contact & About */}
         <div className="flex flex-col gap-5 md:flex-row">
           <div className="flex flex-col gap-2 md:w-1/2">
-            <label htmlFor="contactNumber" className="text-gray-700">Contact Number</label>
+            <label htmlFor="contactNumber" className="text-gray-700 font-bold">Contact Number</label>
             <input
               type="tel"
               id="contactNumber"
               placeholder="Enter Contact Number"
-              className="p-2 rounded-md "
+              className="p-2 rounded-md bg-[white] "
               {...register("contactNumber", {
                 required: "Please enter your Contact Number.",
                 minLength: { value: 10, message: "Invalid Contact Number" },
@@ -114,11 +114,11 @@ export default function EditProfile() {
           </div>
 
           <div className="flex flex-col gap-2 md:w-1/2">
-            <label htmlFor="about" className="text-gray-700">About</label>
+            <label htmlFor="about" className="text-gray-700 font-bold">About</label>
             <textarea
               id="about"
               placeholder="Enter Bio Details"
-              className="p-2 rounded-md  h-24 resize-none"
+              className="p-2 rounded-md  h-24 resize-none bg-[white]"
               {...register("about", { required: true })}
               defaultValue={user?.additionalDetails?.about}
             />
