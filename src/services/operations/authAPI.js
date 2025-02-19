@@ -7,40 +7,40 @@ import { apiConnector } from "../apiConnector.js"
 import { endpoints } from "../apis.js"
 
 const {
-  SENDOTP_API,
+  // SENDOTP_API,
   SIGNUP_API,
   LOGIN_API,
   RESETPASSTOKEN_API,
   RESETPASSWORD_API,
 } = endpoints
-// console.log(SENDOTP_API)
-export function sendOtp(email, navigate) {
-  return async (dispatch) => {
-    const toastId = toast.loading("Loading...")
-    dispatch(setLoading(true))
-    try {
-      const response = await apiConnector("POST", SENDOTP_API, {
-        email,
-        checkUserPresent: true,
-      })
-      console.log("SENDOTP API RESPONSE............", response)
 
-      console.log(response.data.success)
+// export function sendOtp(email, navigate) {
+//   return async (dispatch) => {
+//     const toastId = toast.loading("Loading...")
+//     dispatch(setLoading(true))
+//     try {
+//       const response = await apiConnector("POST", SENDOTP_API, {
+//         email,
+//         checkUserPresent: true,
+//       })
+//       // console.log("SENDOTP API RESPONSE............", response)
 
-      if (!response.data.success) {
-        throw new Error(response.data.message)
-      }
+//       // console.log(response.data.success)
 
-      toast.success("OTP Sent Successfully")
-      navigate("/verify-email")
-    } catch (error) {
-      console.log("SENDOTP API ERROR............", error)
-      toast.error("Could Not Send OTP")
-    }
-    dispatch(setLoading(false))
-    toast.dismiss(toastId)
-  }
-}
+//       if (!response.data.success) {
+//         throw new Error(response.data.message)
+//       }
+
+//       toast.success("OTP Sent Successfully")
+//       navigate("/verify-email")
+//     } catch (error) {
+//       console.log("SENDOTP API ERROR............", error)
+//       toast.error("Could Not Send OTP")
+//     }
+//     dispatch(setLoading(false))
+//     toast.dismiss(toastId)
+//   }
+// }
 
 export function signUp(
   accountType,
@@ -49,7 +49,7 @@ export function signUp(
   email,
   password,
   confirmPassword,
-  otp,
+  // otp,
   navigate
 ) {
   return async (dispatch) => {
@@ -63,7 +63,7 @@ export function signUp(
         email,
         password,
         confirmPassword,
-        otp,
+        // otp,
       })
 
       // console.log("SIGNUP API RESPONSE............", response)
