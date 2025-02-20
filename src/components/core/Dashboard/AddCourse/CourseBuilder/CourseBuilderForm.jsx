@@ -99,7 +99,7 @@ export default function CourseBuilderForm() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="flex flex-col space-y-2">
           <label className="text-sm text-gray-900" htmlFor="sectionName">
-            Section Name <sup className="text-red-500">*</sup>
+            Section Name <sup className="text-[red]">*</sup>
           </label>
           <input
             id="sectionName"
@@ -109,7 +109,7 @@ export default function CourseBuilderForm() {
             className="form-input w-full rounded-lg p-2 shadow-inner"
           />
           {errors.sectionName && (
-            <span className="ml-2 text-xs text-red-500">Section name is required</span>
+            <span className="ml-2 text-xs text-[red]">Section name is required</span>
           )}
         </div>
         <div className="flex flex-col md:flex-row items-center gap-4">
