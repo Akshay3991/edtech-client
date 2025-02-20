@@ -29,11 +29,11 @@ function Dashboard() {
       </aside>
 
       {/* Sidebar toggle button for mobile */}
-      <div className="md:hidden  absolute w-[100vw] bg-[white]  top-[65px] left-0 z-50">
+      <div className="md:hidden   bg-[white] pt-[20px]">
         {/* Sidebar Toggle Button for Mobile */}
         <button
           onClick={toggleSidebar}
-          className="md:hidden fixed  p-[5px_9px]  text-start bg-[white] text-black font-black shadow-lg hover:bg-[#fd2246]"
+          className="md:hidden absloute  p-[15px_19px]  text-start  text-black font-black shadow-lg hover:bg-[#fd2246]"
         >
           ☰
         </button>
@@ -41,10 +41,10 @@ function Dashboard() {
 
       {/* Sidebar for mobile (absolute positioning) */}
       <aside
-        className={`absolute top-0 left-0 h-full w-64 bg-[white] pt-[75px] shadow-lg transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`absolute top-0 left-0 pt-8  transform transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } md:hidden`}
       >
-        <Sidebar />
+        <Sidebar toggleSidebar={toggleSidebar} setSidebarOpen={setSidebarOpen} />
       </aside>
 
       {/* Main content area */}

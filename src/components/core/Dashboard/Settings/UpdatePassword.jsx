@@ -36,7 +36,7 @@ export default function UpdatePassword() {
         {/* Password Fields */}
         <div className="flex flex-col gap-5 md:flex-row">
           {/* Current Password */}
-          <div className="relative flex flex-col gap-2 md:w-1/2">
+          <div className=" flex flex-col gap-2 md:w-1/2">
             <label htmlFor="oldPassword" className="text-gray-700">Current Password</label>
             <input
               type={showOldPassword ? "text" : "password"}
@@ -47,7 +47,7 @@ export default function UpdatePassword() {
             />
             <span
               onClick={() => setShowOldPassword((prev) => !prev)}
-              className="absolute right-3 top-[38px] cursor-pointer"
+              className=" top-[38px] cursor-pointer"
             >
               {showOldPassword ? <AiOutlineEyeInvisible size={24} fill="#555" /> : <AiOutlineEye size={24} fill="#555" />}
             </span>
@@ -55,7 +55,7 @@ export default function UpdatePassword() {
           </div>
 
           {/* New Password */}
-          <div className="relative flex flex-col gap-2 md:w-1/2">
+          <div className="flex flex-col gap-2 md:w-1/2">
             <label htmlFor="newPassword" className="text-gray-700">New Password</label>
             <input
               type={showNewPassword ? "text" : "password"}
@@ -66,7 +66,7 @@ export default function UpdatePassword() {
             />
             <span
               onClick={() => setShowNewPassword((prev) => !prev)}
-              className="absolute right-3 top-[38px] cursor-pointer"
+              className=" top-[38px] cursor-pointer"
             >
               {showNewPassword ? <AiOutlineEyeInvisible size={24} fill="#555" /> : <AiOutlineEye size={24} fill="#555" />}
             </span>
