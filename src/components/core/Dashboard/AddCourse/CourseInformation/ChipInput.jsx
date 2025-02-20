@@ -44,7 +44,7 @@ export default function ChipInput({
     <div className="flex flex-col space-y-2 w-full">
       {/* Label */}
       <label className="text-sm text-gray-700" htmlFor={name}>
-        {label} <sup className="text-red-500">*</sup>
+        {label} <sup className="text-[red]">*</sup>
       </label>
 
       {/* Chip Container */}
@@ -78,7 +78,7 @@ export default function ChipInput({
 
       {/* Error Message */}
       {errors[name] && (
-        <span className="text-xs text-red-500">{label} is required</span>
+        <span className="text-xs text-[red]">{label} is required</span>
       )}
     </div>
   );

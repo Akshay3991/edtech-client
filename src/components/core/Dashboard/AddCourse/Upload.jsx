@@ -56,7 +56,7 @@ export default function Upload({
   return (
     <div className="flex flex-col space-y-2">
       <label className="text-sm text-gray-700" htmlFor={name}>
-        {label} {!viewData && <sup className="text-red-500">*</sup>}
+        {label} {!viewData && <sup className="text-[red]">*</sup>}
       </label>
       <div
         className={`${isDragActive ? "bg-gray-300" : "bg-gray-200"
@@ -94,7 +94,7 @@ export default function Upload({
           >
             <input {...getInputProps()} ref={inputRef} />
             <div className="grid aspect-square w-14 place-items-center rounded-full bg-gray-400 shadow-md">
-              <FiUploadCloud className="text-2xl text-white" />
+              <FiUploadCloud className="text-2xl text-[skyblue]" />
             </div>
             <p className="mt-2 max-w-[200px] text-center text-sm text-gray-600">
               Drag and drop an {!video ? "image" : "video"}, or click to{" "}

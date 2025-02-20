@@ -16,7 +16,7 @@ export default function RenderSteps() {
   return (
     <div className="w-full bg-whitesmoke p-6 rounded-lg shadow-lg">
       {/* Step Progress Bar */}
-      <div className="relative mb-6 flex w-full justify-center items-center">
+      <div className=" mb-6 flex w-full justify-center items-center">
         {steps.map((item, index) => (
           <div key={item.id} className="flex items-center">
             <div className="flex flex-col items-center">
@@ -42,7 +42,7 @@ export default function RenderSteps() {
       </div>
 
       {/* Step Titles */}
-      <div className="relative mb-8 flex w-full select-none justify-between text-xs sm:text-sm text-center">
+      <div className=" mb-8 flex w-full select-none justify-between text-xs sm:text-sm text-center">
         {steps.map((item) => (
           <div key={item.id} className="min-w-[100px]">
             <p
