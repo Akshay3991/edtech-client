@@ -42,7 +42,7 @@ function Navbar() {
   };
 
   return (
-    <div className={`fixed z-10 w-full h-[8vh] font-mono text-[18px] flex items-center justify-between ${isDarkMode ? "bg-[#010a01] text-white" : "bg-[whitesmoke] text-richblack-900"} transition-all duration-200 px-4 sm:px-6 md:px-8`}>
+    <div className={`fixed z-50 w-full h-[8vh] font-mono text-[18px] flex items-center justify-between ${isDarkMode ? "bg-[#010a01] text-white" : "bg-[whitesmoke] text-richblack-900"} transition-all duration-200 px-4 sm:px-6 md:px-8`}>
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2">
         <img src={logo} alt="Logo" width="40" height="40" loading="lazy" className="p-1" />

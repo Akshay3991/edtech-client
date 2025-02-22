@@ -18,6 +18,7 @@ import MyCourses from "./components/core/Dashboard/MyCourses.jsx"
 import MyProfile from "./components/core/Dashboard/MyProfile.jsx"
 import Settings from "./components/core/Dashboard/Settings"
 import ConfirmationModal from "./components/Common/ConfirmationModal.jsx"
+import LogoutModal from "./components/Common/LogoutModal.jsx"
 import VideoDetails from "./components/core/ViewCourse/VideoDetails.jsx"
 import About from "./pages/About.jsx"
 import Catalog from "./pages/Catalog.jsx"
@@ -111,6 +112,7 @@ function App() {
           <Route path="dashboard/my-profile" element={<MyProfile />} />
           <Route path="dashboard/Settings" element={<Settings />} />
           <Route path="dashboard/confirm" element={<ConfirmationModal />} />
+          <Route path="dashboard/logout" element={<LogoutModal />} />
           {/* Route only for Instructors */}
           {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
             <>

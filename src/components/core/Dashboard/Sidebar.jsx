@@ -41,7 +41,7 @@ export default function Sidebar({ toggleSidebar, setSidebarOpen }) {
               iconName="VscSettingsGear"
             />
             <SidebarLink
-              link={{ name: "Logout", path: "/dashboard/confirm" }}
+              link={{ name: "Logout", path: "/dashboard/logout" }}
               iconName="VscSignOut"
             />
 
