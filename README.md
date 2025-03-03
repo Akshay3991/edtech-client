@@ -1,5 +1,5 @@
 # EduTech Project
-EduTech is a fully functional Educational platform designed to enhance the learning experience by enabling users to create, consume, and rate educational content. Built using the MERN stack (MongoDB, ExpressJS, ReactJS, and NodeJS), StudyNotion aims to provide a seamless and interactive learning environment for students while offering a platform for instructors to share their expertise and connect with learners globally.
+EduTech is a fully functional Educational platform designed to enhance the learning experience by enabling users to create, consume, and rate educational content. Built using the MERN stack (MongoDB, ExpressJS, ReactJS, and NodeJS), EducationMart aims to provide a seamless and interactive learning environment for students while offering a platform for instructors to share their expertise and connect with learners globally.
 
 ## Table of Contents
 - [Introduction](#introduction)

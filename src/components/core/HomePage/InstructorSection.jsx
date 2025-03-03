@@ -23,7 +23,7 @@ const InstructorSection = () => {
 
         <p className="mt-6 sm:mt-10 text-lg sm:text-xl lg:text-2xl font-thin font-inter max-w-[90%] sm:max-w-[70%] mx-auto lg:mx-0">
           Instructors from around the world teach millions of students on
-          StudyNotion. We provide the tools and skills to teach what you
+          EducationMart. We provide the tools and skills to teach what you
           love.
         </p>
 
