@@ -1,89 +1,66 @@
-import { FaCheck } from "react-icons/fa"
-import { useSelector } from "react-redux"
-
-import CourseBuilderForm from "./CourseBuilder/CourseBuilderForm.jsx"
-import CourseInformationForm from "./CourseInformation/CourseInformationForm.jsx"
-import PublishCourse from "./PublishCourse"
+import { FaCheck } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import CourseBuilderForm from "./CourseBuilder/CourseBuilderForm.jsx";
+import CourseInformationForm from "./CourseInformation/CourseInformationForm.jsx";
+import PublishCourse from "./PublishCourse";
 
 export default function RenderSteps() {
-  const { step } = useSelector((state) => state.course)
+  const { step } = useSelector((state) => state.course);
 
   const steps = [
-    {
-      id: 1,
-      title: "Course Information",
-    },
-    {
-      id: 2,
-      title: "Course Builder",
-    },
-    {
-      id: 3,
-      title: "Publish",
-    },
-  ]
+    { id: 1, title: "Course Information" },
+    { id: 2, title: "Course Builder" },
+    { id: 3, title: "Publish" },
+  ];
 
   return (
-    <>
-      <div className="relative mb-2 flex w-full justify-center">
-        {steps.map((item) => (
-          <>
-            <div
-              className="flex flex-col items-center "
-              key={item.id}
-            >
+    <div className="w-full bg-whitesmoke p-6 rounded-lg shadow-lg">
+      {/* Step Progress Bar */}
+      <div className=" mb-6 flex w-full justify-center items-center">
+        {steps.map((item, index) => (
+          <div key={item.id} className="flex items-center">
+            <div className="flex flex-col items-center">
               <button
-                className={`grid cursor-default aspect-square w-[34px] place-items-center rounded-full border-[1px] ${
-                  step === item.id
-                    ? "border-yellow-50 bg-yellow-900 text-yellow-50"
-                    : "border-richblack-700 bg-richblack-800 text-richblack-300"
-                } ${step > item.id && "bg-yellow-50 text-yellow-50"}} `}
+                className={`grid aspect-square w-10 place-items-center rounded-full shadow-md transition-all duration-300 ${step === item.id
+                  ? "bg-yellow-500 text-white"
+                  : step > item.id
+                    ? "bg-green-500 text-white"
+                    : "bg-gray-300 text-gray-600"
+                  }`}
               >
-                {step > item.id ? (
-                  <FaCheck className="font-bold text-richblack-900" />
-                ) : (
-                  item.id
-                )}
+                {step > item.id ? <FaCheck className="font-bold" /> : item.id}
               </button>
-              
             </div>
-            {item.id !== steps.length && (
-              <>
-                <div
-                  className={`h-[calc(34px/2)] w-[33%]  border-dashed border-b-2 ${
-                  step > item.id  ? "border-yellow-50" : "border-richblack-500"
-                } `}
-                ></div>
-              </>
+            {index !== steps.length - 1 && (
+              <div
+                className={`h-1 w-24 md:w-36 lg:w-48 transition-all duration-300 ${step > item.id ? "bg-green-500" : "bg-gray-400"
+                  }`}
+              ></div>
             )}
-          </>
+          </div>
         ))}
       </div>
 
-      <div className="relative mb-16 flex w-full select-none justify-between">
+      {/* Step Titles */}
+      <div className=" mb-8 flex w-full select-none justify-between text-xs sm:text-sm text-center">
         {steps.map((item) => (
-          <>
-            <div
-              className="flex min-w-[130px] flex-col items-center gap-y-2"
-              key={item.id}
-            >
-              
-              <p
-                className={`text-sm ${
-                  step >= item.id ? "text-richblack-5" : "text-richblack-500"
+          <div key={item.id} className="min-w-[100px]">
+            <p
+              className={`${step >= item.id ? "text-gray-900 font-semibold" : "text-gray-500"
                 }`}
-              >
-                {item.title}
-              </p>
-            </div>
-            
-          </>
+            >
+              {item.title}
+            </p>
+          </div>
         ))}
       </div>
-      {/* Render specific component based on current step */}
-      {step === 1 && <CourseInformationForm />}
-      {step === 2 && <CourseBuilderForm />}
-      {step === 3 && <PublishCourse />}
-    </>
-  )
+
+      {/* Render Specific Component Based on Current Step */}
+      <div className="mt-6">
+        {step === 1 && <CourseInformationForm />}
+        {step === 2 && <CourseBuilderForm />}
+        {step === 3 && <PublishCourse />}
+      </div>
+    </div>
+  );
 }

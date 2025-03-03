@@ -119,22 +119,22 @@ function Home() {
         <h1 className="text-center text-[1.4rem] sm:text-[2.2rem] md:text-[2.4rem] lg:text-[2.5rem] font-sans font-black  p-[30px_0px]">Browse Trending Categories</h1>
         <div className="w-[90%] mx-auto gap-2 flex flex-col sm:flex-row md:flex-row lg:flex-row overflow-scroll custom-scrollbar">
           <div className="w-full h-full p-[8px]  rounded-[20px] bg-[#105f3e]">
-            <h2 className="text-[white] text-[20px] font-normal font-sans">Web Development</h2>
+            <h2 className="text-[white] text-[20px] font-bold text-center font-sans">Web Development</h2>
           </div>
           <div className="w-full  h-full p-[8px] rounded-[20px] bg-[#FEA116]">
-            <h2 className="text-[white] text-[20px]  font-sans">Photography</h2>
+            <h2 className="text-[white] text-[20px]  text-center font-bold font-sans">Photography</h2>
           </div>
           <div className="w-full h-full p-[8px]  rounded-[20px] bg-[#3D64FF]">
-            <h2 className="text-[white] text-[20px] font-normal font-sans">Graphics Design</h2>
+            <h2 className="text-[white] text-[20px] font-bold text-center  font-sans">Graphics Design</h2>
           </div>
           <div className="w-full h-full p-[8px]   rounded-[20px] bg-[#1CB5A3]">
-            <h2 className="text-[white] text-[20px] font-normal font-sans">Web Language</h2>
+            <h2 className="text-[white] text-[20px] font-bold  text-center font-sans">Web Language</h2>
           </div>
           <div className="w-full h-full p-[8px]  rounded-[20px] bg-[#3D64FF]">
-            <h2 className="text-[white] text-[20px] font-normal font-sans">Health & Fitness</h2>
+            <h2 className="text-[white] text-[20px] font-bold  text-center font-sans">Health & Fitness</h2>
           </div>
           <div className="w-full h-full p-[8px]  rounded-[20px] bg-[#9764DF]">
-            <h2 className="text-[white] text-[20px] font-normal font-sans">Business Studies</h2>
+            <h2 className="text-[white] text-[20px] font-bold  text-center font-sans">Business Studies</h2>
           </div>
         </div>
 

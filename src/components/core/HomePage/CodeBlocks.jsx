@@ -39,7 +39,7 @@ const CodeBlocks = ({
       </div>
 
       {/* Section 2 (Code Block) */}
-      <div className="w-full h-[60vh]  sm:w-[35vw] md:w-[35vw] lg:w-[35vw]  flex flex-col items-center bg-[whitesmoke] shadow-lg rounded-lg shadow-black ">
+      <div className="w-full h-[50vh]  sm:w-[35vw] md:w-[35vw] lg:w-[35vw]  flex flex-col items-center bg-[whitesmoke] shadow-lg rounded-lg shadow-black ">
 
         {/* Code Block */}
         <div

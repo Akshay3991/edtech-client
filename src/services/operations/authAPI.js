@@ -13,7 +13,7 @@ const {
   RESETPASSTOKEN_API,
   RESETPASSWORD_API,
 } = endpoints
-// console.log(SENDOTP_API)
+
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
@@ -49,7 +49,7 @@ export function signUp(
   email,
   password,
   confirmPassword,
-  otp,
+  // otp,
   navigate
 ) {
   return async (dispatch) => {
@@ -63,7 +63,7 @@ export function signUp(
         email,
         password,
         confirmPassword,
-        otp,
+        // otp,
       })
 
       // console.log("SIGNUP API RESPONSE............", response)
