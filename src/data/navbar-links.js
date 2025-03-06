@@ -17,6 +17,6 @@ export const NavbarLinks = [
   },
   {
     title: "Marketplace",
-    path: "/marketp",
+    path: "/marketplace",
   },
 ];

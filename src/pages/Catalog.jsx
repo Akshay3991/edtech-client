@@ -1,128 +1,124 @@
-import React, { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
-import Footer from "../components/Common/Footer.jsx"
-import CourseCard from "../components/core/Catalog/CourseCard.jsx"
-import CourseSlider from "../components/core/Catalog/CourseSlider.jsx"
-import { apiConnector } from "../services/apiConnector.js"
-import { categories } from "../services/apis.js"
-import { getCatalogPageData } from "../services/operations/pageAndComponntDatas.js"
-import Error from "./Error.jsx"
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import Footer from "../components/Common/Footer.jsx";
+import CourseCard from "../components/core/Catalog/CourseCard.jsx";
+import CourseSlider from "../components/core/Catalog/CourseSlider.jsx";
+import { apiConnector } from "../services/apiConnector.js";
+import { categories } from "../services/apis.js";
+import { getCatalogPageData } from "../services/operations/pageAndComponntDatas.js";
+import Error from "./Error.jsx";
 
 function Catalog() {
-  const { loading } = useSelector((state) => state.profile)
-  const { catalogName } = useParams()
-  const [active, setActive] = useState(1)
-  const [catalogPageData, setCatalogPageData] = useState(null)
-  const [categoryId, setCategoryId] = useState("")
-  // Fetch All Categories
+  const { loading } = useSelector((state) => state.profile);
+  const { catalogName } = useParams();
+  const [active, setActive] = useState(1);
+  const [catalogPageData, setCatalogPageData] = useState(null);
+  const [categoryId, setCategoryId] = useState("");
+
+  // Fetch Categories
   useEffect(() => {
-    ; (async () => {
+    (async () => {
       try {
-        const res = await apiConnector("GET", categories.CATEGORIES_API)
-        const category_id = res?.data?.data?.filter(
+        const res = await apiConnector("GET", categories.CATEGORIES_API);
+        const category_id = res?.data?.data?.find(
           (ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName
-        )[0]._id
-        setCategoryId(category_id)
+        )?._id;
+        setCategoryId(category_id);
       } catch (error) {
-        console.log("Could not fetch Categories.", error)
+        console.log("Could not fetch Categories.", error);
       }
-    })()
-  }, [catalogName])
+    })();
+  }, [catalogName]);
+
   useEffect(() => {
     if (categoryId) {
-      ; (async () => {
+      (async () => {
         try {
-          const res = await getCatalogPageData(categoryId)
-          setCatalogPageData(res)
+          const res = await getCatalogPageData(categoryId);
+          setCatalogPageData(res);
         } catch (error) {
-          console.log(error)
+          console.log(error);
         }
-      })()
+      })();
     }
-  }, [categoryId])
+  }, [categoryId]);
 
   if (loading || !catalogPageData) {
     return (
-      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+      <div className="grid min-h-screen place-items-center bg-[whitesmoke]">
         <div className="spinner"></div>
       </div>
-    )
+    );
   }
+
   if (!loading && !catalogPageData.success) {
-    return <Error />
+    return <Error />;
   }
 
   return (
     <>
       {/* Hero Section */}
-      <div className=" box-content bg-richblack-800 px-4">
-        <div className="mx-auto flex min-h-[260px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent ">
-          <p className="text-sm text-richblack-300">
-            {`Home / Catalog / `}
-            <span className="text-yellow-25">
+      <div className="w-full bg-[whitesmoke] px-4">
+        <div className="mx-auto flex min-h-[260px] max-w-7xl flex-col justify-center gap-4 py-8">
+          <p className="text-sm text-gray-600">
+            Home / Catalog /{" "}
+            <span className="text-yellow-500">
               {catalogPageData?.data?.selectedCategory?.name}
             </span>
           </p>
-          <p className="text-3xl text-richblack-5">
+          <h1 className="text-3xl font-bold text-black">
             {catalogPageData?.data?.selectedCategory?.name}
-          </p>
-          <p className="max-w-[870px] text-richblack-200">
+          </h1>
+          <p className="max-w-2xl text-gray-700">
             {catalogPageData?.data?.selectedCategory?.description}
           </p>
         </div>
       </div>
 
-      {/* Section 1 */}
-      <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-        <div className="section_heading">Courses to get you started</div>
-        <div className="my-4 flex border-b border-b-richblack-600 text-sm">
-          <p
-            className={`px-4 py-2 ${active === 1
-              ? "border-b border-b-yellow-25 text-yellow-25"
-              : "text-richblack-50"
-              } cursor-pointer`}
+      {/* Section 1 - Courses to Get Started */}
+      <div className="mx-auto w-full max-w-7xl px-4 py-12 bg-[whitesmoke]">
+        <h2 className="text-2xl font-semibold text-black">
+          Courses to Get You Started
+        </h2>
+        <div className="my-4 flex flex-wrap gap-4 text-sm">
+          <button
+            className={`px-4 py-2 rounded-md ${active === 1 ? "bg-yellow-500 text-black" : "bg-gray-200 text-gray-700"
+              }`}
             onClick={() => setActive(1)}
           >
-            Most Populer
-          </p>
-          <p
-            className={`px-4 py-2 ${active === 2
-              ? "border-b border-b-yellow-25 text-yellow-25"
-              : "text-richblack-50"
-              } cursor-pointer`}
+            Most Popular
+          </button>
+          <button
+            className={`px-4 py-2 rounded-md ${active === 2 ? "bg-yellow-500 text-black" : "bg-gray-200 text-gray-700"
+              }`}
             onClick={() => setActive(2)}
           >
             New
-          </p>
+          </button>
         </div>
-        <div>
-          <CourseSlider
-            Courses={catalogPageData?.data?.selectedCategory?.courses}
-          />
-        </div>
+        <CourseSlider Courses={catalogPageData?.data?.selectedCategory?.courses} />
       </div>
-      {/* Section 2 */}
-      <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-        <div className="section_heading">
-          Top courses in {catalogPageData?.data?.differentCategory?.name}
-        </div>
+
+      {/* Section 2 - Top Courses */}
+      <div className="mx-auto w-full max-w-7xl px-4 py-12 bg-[whitesmoke]">
+        <h2 className="text-2xl font-semibold text-black">
+          Top Courses in {catalogPageData?.data?.differentCategory?.name}
+        </h2>
         <div className="py-8">
-          <CourseSlider
-            Courses={catalogPageData?.data?.differentCategory?.courses}
-          />
+          <CourseSlider Courses={catalogPageData?.data?.differentCategory?.courses} />
         </div>
       </div>
 
-      {/* Section 3 */}
-      <div className=" mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
-        <div className="section_heading">Frequently Bought</div>
+      {/* Section 3 - Frequently Bought */}
+      <div className="mx-auto w-full max-w-7xl px-4 py-12 bg-[whitesmoke]">
+        <h2 className="text-2xl font-semibold text-black">Frequently Bought</h2>
         <div className="py-8">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {catalogPageData?.data?.mostSellingCourses
               ?.slice(0, 4)
               .map((course, i) => (
-                <CourseCard course={course} key={i} Height={"h-[400px]"} />
+                <CourseCard course={course} key={i} Height="h-[400px]" />
               ))}
           </div>
         </div>
@@ -130,7 +126,7 @@ function Catalog() {
 
       <Footer />
     </>
-  )
+  );
 }
 
-export default Catalog
+export default Catalog;

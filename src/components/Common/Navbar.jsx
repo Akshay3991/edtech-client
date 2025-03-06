@@ -38,11 +38,11 @@ function Navbar() {
   // Toggle light/dark mode
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle("dark");
+    // document.documentElement.classList.toggle("dark");
   };
 
   return (
-    <div className={`fixed z-50 w-full h-[8vh] font-mono text-[18px] flex items-center justify-between ${isDarkMode ? "bg-[#010a01] text-white" : "bg-[whitesmoke] text-richblack-900"} transition-all duration-200 px-4 sm:px-6 md:px-8`}>
+    <div className={`fixed z-50 w-full h-[8vh] p-2 font-mono text-[18px] flex items-center justify-between ${isDarkMode ? "bg-[#010a01] text-white" : "bg-[whitesmoke] text-richblack-900"} transition-all duration-200 px-4 sm:px-6 md:px-8`}>
       {/* Logo */}
       <Link to="/" className="flex items-center gap-2">
         <img src={logo} alt="Logo" width="40" height="40" loading="lazy" className="p-1" />
@@ -100,15 +100,33 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="absolute top-[8vh] left-0 w-full bg-white shadow-lg p-4 md:hidden">
+        <div className="absolute top-[8vh] left-0 w-full bg-[#FC2146] shadow-lg p-4 md:hidden">
           <ul className="space-y-4">
             {NavbarLinks.map((link, index) => (
-              <li key={index}>
-                <Link to={link?.path} className="text-lg">{link.title}</Link>
+              <li key={index} className="list-none" >
+                {link.title === "Catalog" ? (
+                  <div className="relative group cursor-pointer flex items-center gap-1">
+                    <p>{link.title}</p>
+                    <BsChevronDown />
+                    <div className={`invisible absolute left-1/2 top-full z-10 w-[200px] translate-x-[-50%] flex flex-col rounded-lg ${isDarkMode ? "bg-richblack-800" : "bg-white"} p-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 shadow-lg`}>
+                      {loading ? <p className="text-center">Loading...</p> : subLinks.length ? (
+                        subLinks.filter(sub => sub?.courses?.length > 0).map((sub, i) => (
+                          <Link key={i} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} to={`/catalog/${sub.name.split(" ").join("-").toLowerCase()}`} className="py-2 pl-4 hover:bg-opacity-10 rounded-lg">
+                            <p>{sub.name}</p>
+                          </Link>
+                        ))
+                      ) : <p className="text-center">No Courses Found</p>}
+                    </div>
+                  </div>
+                ) : (
+                  <Link to={link?.path} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="hover:underline">
+                    <p>{link.title}</p>
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
-          <div className="mt-4 flex flex-col gap-3">
+          <div onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="mt-4 flex flex-col gap-3">
             <button onClick={toggleTheme} className="p-2 rounded-full bg-gray-200">{isDarkMode ? <BsSun className="text-xl text-yellow-500" /> : <BsMoon className="text-xl" />}</button>
             {user && user?.accountType !== "INSTRUCTOR" && (
               <Link to="/dashboard/cart" className="relative">

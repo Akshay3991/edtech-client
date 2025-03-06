@@ -32,7 +32,7 @@ export default function RenderCartCourses() {
                 </p>
                 <p className="text-sm text-gray-600">{course?.category?.name}</p>
                 <div className="flex items-center justify-center md:justify-start gap-2">
-                  <span className="text-yellow-500">4.5</span>
+                  {/* <span className="text-yellow-500">4.5</span> */}
                   <ReactStars
                     count={5}
                     value={course?.ratingAndReviews?.length}

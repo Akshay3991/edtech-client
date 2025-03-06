@@ -1,20 +1,15 @@
-import React, { useEffect, useRef, useState } from "react"
-import { AiOutlineDown } from "react-icons/ai"
-import { HiOutlineVideoCamera } from "react-icons/hi"
+import React from "react";
+import { HiOutlineVideoCamera } from "react-icons/hi";
 
 function CourseSubSectionAccordion({ subSec }) {
   return (
-    <div>
-      <div className="flex justify-between py-2">
-        <div className={`flex items-center gap-2`}>
-          <span>
-            <HiOutlineVideoCamera />
-          </span>
-          <p>{subSec?.title}</p>
-        </div>
+    <div className="bg-[whitesmoke] shadow-lg shadow-black rounded-lg p-4 my-2">
+      <div className="flex items-center gap-3">
+        <HiOutlineVideoCamera className="text-xl text-[grey]" />
+        <p className="text-lg font-medium text-[gray]">{subSec?.title}</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default CourseSubSectionAccordion
+export default CourseSubSectionAccordion;

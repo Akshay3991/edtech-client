@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import OtpInput from "react-otp-input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 import { RxCountdownTimer } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { sendOtp, signUp } from "../services/operations/authAPI.js";
-import { useNavigate } from "react-router-dom";
 
 function VerifyEmail() {
   const [otp, setOtp] = useState("");
@@ -14,7 +13,6 @@ function VerifyEmail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Only allow access of this route when user has filled the signup form
     if (!signupData) {
       navigate("/signup");
     }
@@ -23,44 +21,23 @@ function VerifyEmail() {
 
   const handleVerifyAndSignup = (e) => {
     e.preventDefault();
-    const {
-      accountType,
-      firstName,
-      lastName,
-      email,
-      password,
-      confirmPassword,
-    } = signupData;
+    const { accountType, firstName, lastName, email, password, confirmPassword } = signupData;
 
-    dispatch(
-      signUp(
-        accountType,
-        firstName,
-        lastName,
-        email,
-        password,
-        confirmPassword,
-        otp,
-        navigate
-      )
-    );
+    dispatch(signUp(accountType, firstName, lastName, email, password, confirmPassword, otp, navigate));
   };
 
   return (
-    <div className="min-h-[calc(100vh-3.5rem)] grid place-items-center">
+    <div className="min-h-screen flex items-center justify-center bg-whitesmoke px-4 py-10">
       {loading ? (
-        <div>
-          <div className="spinner"></div>
-        </div>
+        <div className="spinner"></div>
       ) : (
-        <div className="max-w-[500px] p-4 lg:p-8">
-          <h1 className="text-richblack-5 font-semibold text-[1.875rem] leading-[2.375rem]">
-            Verify Email
-          </h1>
-          <p className="text-[1.125rem] leading-[1.625rem] my-4 text-richblack-100">
-            A verification code has been sent to you. Enter the code below
+        <div className="w-full max-w-md p-6 rounded-lg bg-white shadow-lg">
+          <h1 className="text-gray-900 text-2xl md:text-3xl font-semibold text-center">Verify Email</h1>
+          <p className="text-gray-600 text-center mt-2">
+            A verification code has been sent to your email. Enter the code below.
           </p>
-          <form onSubmit={handleVerifyAndSignup}>
+
+          <form onSubmit={handleVerifyAndSignup} className="mt-6">
             <OtpInput
               value={otp}
               onChange={setOtp}
@@ -69,36 +46,29 @@ function VerifyEmail() {
                 <input
                   {...props}
                   placeholder="-"
-                  style={{
-                    boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
-                  }}
-                  className="w-[48px] lg:w-[60px] border-0 bg-richblack-800 rounded-[0.5rem] text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50"
+                  className="w-10 h-10 md:w-12 md:h-12 border border-gray-300 rounded-md text-center text-lg font-medium focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
               )}
-              containerStyle={{
-                justifyContent: "space-between",
-                gap: "0 6px",
-              }}
+              containerStyle="flex justify-center gap-2 md:gap-4"
             />
+
             <button
               type="submit"
-              className="w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900"
+              className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 rounded-md mt-6 transition-all duration-200"
             >
               Verify Email
             </button>
           </form>
-          <div className="mt-6 flex items-center justify-between">
-            <Link to="/signup">
-              <p className="text-richblack-5 flex items-center gap-x-2">
-                <BiArrowBack /> Back To Signup
-              </p>
+
+          <div className="mt-6 flex flex-col md:flex-row items-center justify-between text-sm">
+            <Link to="/signup" className="flex items-center text-gray-700 hover:text-gray-900 transition-all">
+              <BiArrowBack className="mr-1" /> Back To Signup
             </Link>
             <button
-              className="flex items-center text-blue-100 gap-x-2"
+              className="flex items-center text-blue-600 hover:text-blue-800 transition-all"
               onClick={() => dispatch(sendOtp(signupData.email))}
             >
-              <RxCountdownTimer />
-              Resend it
+              <RxCountdownTimer className="mr-1" /> Resend Code
             </button>
           </div>
         </div>

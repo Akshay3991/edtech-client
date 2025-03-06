@@ -218,7 +218,10 @@ function Home() {
         <h1 className="text-2xl sm:text-4xl lg:text-4xl font-black font-sans text-center">
           Reviews from other learners
         </h1>
-        <ReviewSlider />
+        <div className="bg-[white] p-4">
+          <ReviewSlider />
+        </div>
+
       </div>
       <Footer />
     </div>
