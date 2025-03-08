@@ -1,8 +1,10 @@
 // Icons Import
 import { FaArrowRight, FaLinkedin } from "react-icons/fa"
 import { Link } from "react-router-dom";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { HiLightBulb } from "react-icons/hi";
-import { useRef, useEffect, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import { FaGithubSquare } from "react-icons/fa";
 // Image and Video Import
 import Banner from "../assets/Images/banner.mp4"
@@ -231,78 +233,125 @@ function Home() {
 export default Home
 
 
+
 const NewsComponent = () => {
+  const [newsArticles, setNewsArticles] = useState([]);
   const [highlightedIndex, setHighlightedIndex] = useState(null);
-  const newsContainerRef = useRef(null); // Reference to the scrolling container
-  const scrollSpeed = 1; // Adjust scroll speed (pixels per frame)
-  let animationFrameId = useRef(null); // Store the animation frame ID for cleanup
+  const newsContainerRef = useRef(null);
+  const animationFrameId = useRef(null);
+  const scrollSpeed = 0.5; // Adjust speed
+
+  const API_KEY = process.env.REACT_APP_GUARDIAN_API_KEY;
+  const URL = `https://content.guardianapis.com/search?api-key=${API_KEY}&section=technology|education&show-fields=thumbnail,headline,trailText`;
+
+  useEffect(() => {
+    axios
+      .get(URL)
+      .then((response) => {
+        setNewsArticles(response.data.response.results);
+      })
+      .catch((error) => console.error("Error fetching news:", error));
+  }, []);
 
   useEffect(() => {
     const newsContainer = newsContainerRef.current;
+    if (!newsContainer) return;
+
     let scrollAmount = 0;
 
     const autoScroll = () => {
-      // Increment the scroll amount
-      scrollAmount += scrollSpeed;
-      // If scrolled to the end, reset to the start
-      if (scrollAmount >= newsContainer.scrollWidth - newsContainer.clientWidth) {
-        scrollAmount = 0;
+      if (newsContainer.scrollWidth > newsContainer.clientWidth) {
+        scrollAmount += scrollSpeed;
+        if (scrollAmount >= newsContainer.scrollWidth - newsContainer.clientWidth) {
+          scrollAmount = 0; // Reset scroll when reaching the end
+        }
+        newsContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
       }
-
-      // Apply the scroll
-      newsContainer.scrollTo({
-        left: scrollAmount,
-        behavior: "smooth", // Enable smooth scroll
-      });
-
-      // Request the next frame
       animationFrameId.current = requestAnimationFrame(autoScroll);
     };
 
-    // Start auto-scrolling
     autoScroll();
 
-    // Cleanup: Cancel the animation frame when the component unmounts
-    return () => {
-      if (animationFrameId.current) {
-        cancelAnimationFrame(animationFrameId.current);
-      }
-    };
-  }, []);
+    return () => cancelAnimationFrame(animationFrameId.current);
+  }, [newsArticles]);
 
-  // Function to stop auto-scrolling and highlight the clicked item
   const handleNewsClick = (index) => {
-    // Stop the auto-scrolling
-    if (animationFrameId.current) {
-      cancelAnimationFrame(animationFrameId.current);
-    }
-
-    // Highlight the clicked news box
+    cancelAnimationFrame(animationFrameId.current);
     setHighlightedIndex(index);
   };
 
+  const scrollLeft = () => {
+    if (newsContainerRef.current) {
+      newsContainerRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (newsContainerRef.current) {
+      newsContainerRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
+
   return (
-    <div
-      ref={newsContainerRef}
-      className="flex w-[100vw] custom-scrollbar overflow-x-auto space-x-4 p-4 bg-gray-100"
-    >
-      {["News Title 1", "News Title 2", "News Title 3", "News Title 4", "News Title 5", "News Title 6", "News Title 7"].map(
-        (title, index) => (
-          <div
-            key={index}
-            onClick={() => handleNewsClick(index)}
-            className={`flex-shrink-0 w-full sm:w-[25vw] h-[50vh] bg-white rounded-lg shadow-md p-4 transition duration-300 ${highlightedIndex === index ? "bg-yellow-200 border-2 border-blue-500" : ""
-              }`} // Highlight the clicked news box
-          >
-            <h3 className="text-lg font-semibold">{title}</h3>
-            <p className="text-sm text-gray-600">This is a brief description of the news item.</p>
-            <a href="#" className="text-blue-500 hover:text-blue-700 text-sm">
-              Read more
-            </a>
-          </div>
-        )
-      )}
+    <div className="relative w-full overflow-hidden bg-gray-100 p-4">
+      {/* Left Scroll Button */}
+      <button
+        onClick={scrollLeft}
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white shadow-md p-2 rounded-full hover:bg-gray-200 z-10"
+      >
+        <FaChevronLeft size={24} />
+      </button>
+
+      <div
+        ref={newsContainerRef}
+        className="flex overflow-x-auto space-x-4 custom-scrollbar scroll-smooth"
+      >
+        {newsArticles.length === 0 ? (
+          <p className="text-gray-600 text-center w-full">Loading news...</p>
+        ) : (
+          newsArticles.map((article, index) => (
+            <div
+              key={article.id}
+              onClick={() => handleNewsClick(index)}
+              className={`flex-shrink-0 w-[90%] sm:w-[48%] md:w-[32%] lg:w-[24%] h-[auto] bg-white rounded-lg shadow-md p-4 transition duration-300 ${highlightedIndex === index ? "bg-[wheat] border-2 border-[red]" : ""
+                }`}
+            >
+              {article.fields.thumbnail && (
+                <img
+                  src={article.fields.thumbnail}
+                  alt={article.fields.headline}
+                  className="w-full h-40 object-cover rounded-md mb-3"
+                />
+              )}
+              <h3 className="text-lg font-semibold truncate">{article.fields.headline}</h3>
+              <p className="text-sm text-gray-600 line-clamp-3">
+                {article.fields.trailText.length > 120
+                  ? `${article.fields.trailText.substring(0, 120)}...`
+                  : article.fields.trailText}
+              </p>
+              <a
+                href={article.webUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-700 text-sm block mt-2"
+              >
+                Read more
+              </a>
+            </div>
+          ))
+        )}
+      </div>
+
+      {/* Right Scroll Button */}
+      <button
+        onClick={scrollRight}
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white shadow-md p-2 rounded-full hover:bg-gray-200 z-10"
+      >
+        <FaChevronRight size={24} />
+      </button>
     </div>
   );
 };
+
+
 

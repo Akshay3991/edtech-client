@@ -1,6 +1,6 @@
 export default function Tab({ tabData, field, setField }) {
   return (
-    <div className="flex flex-wrap justify-center gap-2 p-2 my-6 bg-[whitesmoke] rounded-full shadow-md shadow-black">
+    <div className="flex flex-wrap justify-center gap-2 p-2 my-6 bg-[#e42b2b] rounded-full shadow-md shadow-black">
       {tabData.map((tab) => (
         <button
           key={tab.id}

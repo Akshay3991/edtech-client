@@ -100,7 +100,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="absolute top-[8vh] left-0 w-full bg-[#FC2146] shadow-lg p-4 md:hidden">
+        <div className="absolute top-[8vh] left-0 w-full bg-[#f7f5f5] shadow-lg p-4 md:hidden">
           <ul className="space-y-4">
             {NavbarLinks.map((link, index) => (
               <li key={index} className="list-none" >
