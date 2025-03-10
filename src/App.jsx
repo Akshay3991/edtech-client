@@ -23,6 +23,8 @@ import VideoDetails from "./components/core/ViewCourse/VideoDetails.jsx"
 import About from "./pages/About.jsx"
 import Catalog from "./pages/Catalog.jsx"
 import Contact from "./pages/Contact.jsx"
+import ProductUploader from "./components/core/Dashboard/ProductUpload/ProductUploader.jsx"
+import Marketplace from "./pages/Marketplace.jsx"
 import CourseDetails from "./pages/CourseDetails.jsx"
 import Dashboard from "./pages/Dashboard.jsx"
 import Error from "./pages/Error.jsx"
@@ -57,6 +59,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/marketplace" element={<Marketplace />} />
         <Route path="courses/:courseId" element={<CourseDetails />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
         {/* Open Route - for Only Non Logged in User */}
@@ -110,6 +113,7 @@ function App() {
         >
           {/* Route for all users */}
           <Route path="dashboard/my-profile" element={<MyProfile />} />
+          <Route path="/dashboard/productupload" element={<ProductUploader />} />
           <Route path="dashboard/Settings" element={<Settings />} />
           <Route path="dashboard/confirm" element={<ConfirmationModal />} />
           <Route path="dashboard/logout" element={<LogoutModal />} />
