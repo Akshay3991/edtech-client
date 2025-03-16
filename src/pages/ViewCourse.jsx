@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, useParams } from "react-router-dom";
+import { MdMenuOpen } from "react-icons/md";
+import { IoCloseCircleSharp } from "react-icons/io5";
+
 
 import CourseReviewModal from "../components/core/ViewCourse/CourseReviewModal.jsx";
 import VideoDetailsSidebar from "../components/core/ViewCourse/VideoDetailsSidebar.jsx";
@@ -37,21 +40,21 @@ export default function ViewCourse() {
 
   return (
     <>
-      <div className="relative flex min-h-[calc(100vh-3.5rem)] bg-[whitesmoke]">
+      <div className="relative flex min-h-[calc(100vh-3.5rem)] mt-[60px] bg-[tomato]">
         {/* Sidebar Toggle Button (Mobile & Tablet) */}
         <button
-          className="absolute left-4 top-4 z-50 rounded-lg bg-gray-800 px-4 py-2 text-white shadow-md md:hidden"
+          className="absolute left-0 top-2 z-30 rounded-lg bg-[#0f0f0f] px-4 py-2 text-white shadow-md md:hidden"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         >
-          {isSidebarOpen ? "Hide Sidebar" : "Show Sidebar"}
+          {isSidebarOpen ? <IoCloseCircleSharp /> : <MdMenuOpen />}
         </button>
 
         {/* Sidebar (Hidden on Mobile unless toggled) */}
         <div
-          className={`absolute inset-y-0 left-0 z-40 w-[280px] bg-[whitesmoke] shadow-md transition-transform duration-300 md:relative md:translate-x-0 lg:w-[350px] ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          className={`absolute inset-y-0 left-0 z-20 w-[280px] bg-[whitesmoke] shadow-md transition-transform duration-300 md:relative md:translate-x-0 lg:w-[350px] ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
             }`}
         >
-          <VideoDetailsSidebar setReviewModal={setReviewModal} />
+          <VideoDetailsSidebar setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} setReviewModal={setReviewModal} />
         </div>
 
         {/* Main Content Area */}

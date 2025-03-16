@@ -33,16 +33,16 @@ const PurchasedProducts = () => {
     };
 
     return (
-        <div className="container mx-auto p-6">
-            <h1 className="text-3xl font-bold mb-4">Your Purchased Products</h1>
+        <div className="container mx-auto bg-gradient-to-r from-white to-[#A9C0D2] p-6">
+            <h1 className="text-3xl font-bold mb-4 font-sans">Your Purchased Products</h1>
 
             {loading && <p>Loading...</p>}
             {error && <p className="text-red-500">{error}</p>}
 
             {orders.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {orders.map((order) => (
-                        <div key={order.orderId} className="border p-4 rounded-lg shadow-lg">
+                        <div key={order.orderId} className="shadow-md shadow-black hover:border-[3px] border-[black] p-4 rounded-lg ">
                             {order.product ? (
                                 <>
                                     <img
@@ -50,25 +50,24 @@ const PurchasedProducts = () => {
                                         alt={order.product.name || "Product Image"}
                                         className="w-full h-40 object-cover rounded-md"
                                     />
-                                    <h2 className="text-xl font-bold mt-2">{order.product.name}</h2>
-                                    <p className="text-gray-600">₹{order.product.price}</p>
-                                    <p className="text-gray-500">Category: {order.product.category}</p>
+                                    <h2 className="text-xl  text-[#020c02] font-black font-inter mt-2">{order.product.name}</h2>
+                                    <p className="text-[gray]">₹{order.product.price}</p>
                                 </>
                             ) : (
-                                <p className="text-gray-500">Product details not available.</p>
+                                <p className="text-[gray]">Product details not available.</p>
                             )}
 
-                            <p className="text-gray-500">Quantity: {order.quantity}</p>
-                            <p className="text-gray-500">Order ID: {order.orderId}</p>
-                            <p className="text-gray-500">Payment ID: {order.paymentId}</p>
-                            <p className="text-gray-500">
+                            <p className="text-[gray]">Quantity: <span className="font-black">{order.quantity}</span></p>
+                            <p className="text-[gray]">Order ID: <span className="font-black">{order.orderId}</span></p>
+                            <p className="text-[gray]">Payment ID: <span className="font-black">{order.paymentId}</span></p>
+                            <p className="text-[#0a0a0a] font-sans font-black">
                                 Purchased On: {order.purchasedAt ? new Date(order.purchasedAt).toLocaleDateString() : "N/A"}
                             </p>
                         </div>
                     ))}
                 </div>
             ) : (
-                !loading && <p className="text-center text-gray-500">No purchased products found.</p>
+                !loading && <p className="text-center text-[gray]">No purchased products found.</p>
             )}
         </div>
     );

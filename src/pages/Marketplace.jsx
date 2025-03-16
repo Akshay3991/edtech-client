@@ -28,12 +28,12 @@ const Marketplace = () => {
     if (error) return <p className="text-center text-red-500">{error}</p>;
 
     return (
-        <div className="container mx-auto m-20 bg-gradient-to-l from-[#faf5f5] to-[#fefdfd] p-10">
+        <div className="container mx-auto m-20 bg-gradient-to-l from-[#fffefe] to-[skyblue] p-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {products.map((product) => (
                     <div
                         key={product._id}
-                        className="bg-[wheat] shadow-lg rounded-lg p-4 cursor-pointer hover:shadow-2xl hover:shadow-black transition"
+                        className="bg-[white] shadow-lg rounded-lg p-4 cursor-pointer hover:shadow-2xl hover:shadow-white transition"
                         onClick={() => setSelectedProduct(product)}
                     >
                         <img

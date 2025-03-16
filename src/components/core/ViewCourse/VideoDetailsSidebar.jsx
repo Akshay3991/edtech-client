@@ -6,7 +6,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import IconBtn from "../../Common/IconBtn.jsx";
 
-export default function VideoDetailsSidebar({ setReviewModal }) {
+export default function VideoDetailsSidebar({ setReviewModal, setIsSidebarOpen, isSidebarOpen }) {
   const [activeStatus, setActiveStatus] = useState("");
   const [videoBarActive, setVideoBarActive] = useState("");
   const navigate = useNavigate();
@@ -34,12 +34,12 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
   }, [courseSectionData, courseEntireData, location.pathname]);
 
   return (
-    <div className="flex h-screen w-full max-w-[350px] flex-col bg-whitesmoke text-gray-900 shadow-lg md:w-[320px] lg:w-[350px]">
+    <div className="flex h-screen w-full max-w-[350px] flex-col pt-6 bg-[#f6f6f8] font-sans text-[#140202] shadow-lg md:w-[320px] lg:w-[350px]">
       <div className="mx-4 flex flex-col gap-3 border-b border-gray-300 py-4">
         <div className="flex items-center justify-between">
           <button
             onClick={() => navigate(`/dashboard/enrolled-courses`)}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-300 text-gray-700 hover:scale-90 transition-transform"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-[tomato] text-[white]  hover:scale-90 transition-transform"
             title="Back"
           >
             <IoIosArrowBack size={24} />
@@ -49,7 +49,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
 
         <div>
           <p className="text-lg font-semibold">{courseEntireData?.courseName}</p>
-          <p className="text-sm font-medium text-gray-500">
+          <p className="text-sm font-medium text-[gray]">
             {completedLectures?.length} / {totalNoOfLectures} Lectures Completed
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
           <div key={index} className="mt-2">
             {/* Section */}
             <button
-              className="flex w-full items-center justify-between bg-gray-300 px-4 py-3 rounded-lg"
+              className="flex w-full items-center justify-between uppercase text-[white] font-normal bg-[#e4e3e3] px-4 py-3 rounded-lg"
               onClick={() => setActiveStatus(activeStatus === course._id ? "" : course._id)}
             >
               <span className="w-[80%] font-semibold text-left">{course?.sectionName}</span>
@@ -82,10 +82,11 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                         `/view-course/${courseEntireData?._id}/section/${course?._id}/sub-section/${topic?._id}`
                       );
                       setVideoBarActive(topic._id);
+                      setIsSidebarOpen(!isSidebarOpen)
                     }}
-                    className={`flex w-full items-center gap-3 rounded-lg px-4 py-2 text-left transition-all ${videoBarActive === topic._id
-                      ? "bg-yellow-200 font-semibold text-gray-800"
-                      : "hover:bg-gray-400"
+                    className={`flex w-full items-center gap-3 uppercase rounded-lg px-4 py-2 text-left transition-all ${videoBarActive === topic._id
+                      ? "bg-[tomato] font-semibold text-[whitesmoke]"
+                      : "hover:bg-[gray]"
                       }`}
                   >
                     <input type="checkbox" checked={completedLectures.includes(topic?._id)} readOnly />

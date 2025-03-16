@@ -96,7 +96,7 @@ const VideoDetails = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-5 bg-whitesmoke p-4 md:p-6 lg:p-8 text-gray-900">
+    <div className="flex flex-col items-center gap-5 bg-[whitesmoke] p-3 mt-5 md:mt-0 md:p-6 lg:p-8 text-[black]">
       {!videoData ? (
         <img
           src={previewSource}
@@ -157,8 +157,8 @@ const VideoDetails = () => {
         </div>
       )}
 
-      <h1 className="mt-4 text-xl font-semibold md:text-2xl lg:text-3xl text-center">{videoData?.title}</h1>
-      <p className="pt-2 pb-6 text-center text-sm md:text-base">{videoData?.description}</p>
+      <h1 className="mt-4 text-xl uppercase bg-[#E4E3E3] p-3 rounded-2xl text-[whitesmoke] font-semibold md:text-2xl lg:text-3xl text-center">{videoData?.title}</h1>
+      <p className="pt-2 pb-6 text-center text-[#080201] font-black text-sm md:text-base">{videoData?.description}</p>
     </div>
   );
 };

@@ -41,7 +41,7 @@ export default function CourseReviewModal({ setReviewModal }) {
   };
 
   return (
-    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black bg-opacity-40 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-[#fa1010] bg-opacity-40 backdrop-blur-sm">
       <div className="w-11/12 max-w-[700px] rounded-lg bg-whitesmoke shadow-lg shadow-black p-6">
         {/* Modal Header */}
         <div className="flex items-center justify-between">

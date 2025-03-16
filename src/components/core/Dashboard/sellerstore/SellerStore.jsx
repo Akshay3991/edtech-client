@@ -64,38 +64,44 @@ const SellerStore = () => {
     };
 
     return (
-        <div className="container mx-auto m-20 bg-gradient-to-l from-[#faf5f5] to-[#bfcdfa] p-10">
-            {loading && <p>Loading...</p>}
-            {error && <p className="text-red-500">{error}</p>}
-            <div className="grid grid-cols-3 gap-4">
+        <div className="container mx-auto p-6 sm:p-8 md:p-10 lg:p-12 bg-gradient-to-l from-[#faf5f5] to-[#bfcdfa]">
+
+            {loading && <p className="text-center">Loading...</p>}
+            {error && <p className="text-center text-[red]">{error}</p>}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {products.length > 0 ? (
                     products.map((product) => (
-                        <div key={product._id} className="hover:border-[3px] hover:border-[red] p-4 rounded-lg shadow-lg relative">
-                            <img src={product.image} alt={product.name} className="w-full h-40 object-cover rounded-md" />
-                            <h2 className="text-xl font-bold mt-2">{product.name}</h2>
-                            <p className="text-gray-600">₹{product.price}</p>
-                            <p className="text-gray-500">Stock: {product.stock}</p>
-                            <p className="text-gray-500">Sold: {product.sold}</p>
+                        <div key={product._id} className="hover:border-[3px] rounded-lg shadow-lg p-4  hover:border-[tomato] transition duration-300">
+                            <img
+                                src={product.image}
+                                alt={product.name}
+                                className="w-full h-48 object-cover rounded-md"
+                            />
+                            <h2 className="text-lg font-bold mt-2">{product.name}</h2>
+                            <p className="text-[gray] text-sm">₹{product.price}</p>
+                            <p className="text-[gray] text-sm">Stock: {product.stock}</p>
+                            <p className="text-[gray] text-sm">Sold: {product.sold}</p>
 
-                            {/* Edit Button */}
-                            <button
-                                onClick={() => handleEdit(product)}
-                                className="mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 mr-2"
-                            >
-                                Edit
-                            </button>
-
-                            {/* Delete Button */}
-                            <button
-                                onClick={() => handleDelete(product._id)}
-                                className="mt-2 bg-red-500 text-white px-3 py-1 rounded hover:bg-[red]"
-                            >
-                                Delete
-                            </button>
+                            {/* Buttons */}
+                            <div className="flex flex-wrap mt-3 font-black gap-2">
+                                <button
+                                    onClick={() => handleEdit(product)}
+                                    className="flex-1 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-sm"
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    onClick={() => handleDelete(product._id)}
+                                    className="flex-1 text-white  px-4 py-2 rounded hover:bg-[tomato] text-sm"
+                                >
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     ))
                 ) : (
-                    <p>No products found.</p>
+                    <p className="text-center text-[gray] col-span-full">No products found.</p>
                 )}
             </div>
 
