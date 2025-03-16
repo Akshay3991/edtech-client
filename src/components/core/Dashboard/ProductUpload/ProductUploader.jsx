@@ -1,16 +1,21 @@
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
+import { useSelector } from "react-redux";
+
 
 const ProductUploader = () => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
+    const [stock, setStock] = useState("");
     const [preview, setPreview] = useState(null);
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
 
+    const { token } = useSelector((state) => state.auth);
     // Handle Image Drop
     const onDrop = useCallback((acceptedFiles) => {
         const selectedFile = acceptedFiles[0];
@@ -27,7 +32,7 @@ const ProductUploader = () => {
     // Handle Product Submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!name || !price || !file || !description) {
+        if (!name || !price || !file || !description || !category || !stock) {
             setMessage("⚠️ Please fill all fields and upload an image.");
             return;
         }
@@ -37,6 +42,8 @@ const ProductUploader = () => {
         formData.append("price", price);
         formData.append("image", file);
         formData.append("description", description);
+        formData.append("category", category);
+        formData.append("stock", stock);
 
         setLoading(true);
         setMessage("");
@@ -45,12 +52,19 @@ const ProductUploader = () => {
             await axios.post(
                 "https://edtech-server-a3tn.onrender.com/api/v1/products/addproducts",
                 formData,
-                { headers: { "Content-Type": "multipart/form-data" } }
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        "Authorization": `Bearer ${token}`
+                    },
+                }
             );
             setMessage("✅ Product uploaded successfully!");
             setName("");
             setPrice("");
-            setDescription("")
+            setDescription("");
+            setCategory("");
+            setStock("");
             setFile(null);
             setPreview(null);
         } catch (error) {
@@ -61,59 +75,37 @@ const ProductUploader = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-4 text-center">Add Product</h2>
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-richblack-5 to-richblue-50 p-6">
+            <div className="w-full max-w-3xl bg-white shadow-lg rounded-xl p-8">
+                <h2 className="text-2xl font-bold text-center text-[gray] mb-6">Add New Product</h2>
 
-            {/* Drag & Drop Upload Box */}
-            <div
-                {...getRootProps()}
-                className="border-2 border-dashed p-4 text-center cursor-pointer mb-4 rounded-lg hover:border-blue-500 transition-all"
-            >
-                <input {...getInputProps()} />
-                {preview ? (
-                    <img
-                        src={preview}
-                        alt="Preview"
-                        className="h-40 mx-auto rounded-md shadow-sm"
-                    />
-                ) : (
-                    <p className="text-gray-500">Drag & drop an image here, or click to select</p>
-                )}
-            </div>
-
-            {/* Product Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                    type="text"
-                    placeholder="Product Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-                <input
-                    type="number"
-                    placeholder="Price"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-                <textarea
-                    type="number"
-                    placeholder="Description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                />
-                <button
-                    type="submit"
-                    className={`w-full py-2 rounded-md text-white ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600"}`}
-                    disabled={loading}
+                {/* Drag & Drop Upload Box */}
+                <div
+                    {...getRootProps()}
+                    className="border-2 border-dashed border-[black] bg-[#e1f8f6] p-6 text-center cursor-pointer rounded-lg hover:border-blue-500 transition-all"
                 >
-                    {loading ? "Uploading..." : "Upload Product"}
-                </button>
-            </form>
+                    <input {...getInputProps()} />
+                    {preview ? (
+                        <img src={preview} alt="Preview" className="h-40 mx-auto rounded-md shadow-md" />
+                    ) : (
+                        <p className="text-gray-500 font-medium">Drag & drop an image here, or click to select</p>
+                    )}
+                </div>
 
-            {message && <p className="mt-4 text-center text-sm text-gray-700">{message}</p>}
+                {/* Product Form */}
+                <form onSubmit={handleSubmit} className="space-y-4 mt-6">
+                    <input type="text" placeholder="Product Name" value={name} onChange={(e) => setName(e.target.value)} className="w-full p-3 bg-[whitesmoke] shadow-sm shadow-[skyblue] rounded-lg" />
+                    <input type="number" placeholder="Price (₹)" value={price} onChange={(e) => setPrice(e.target.value)} className="w-full p-3 bg-[whitesmoke] shadow-sm shadow-[skyblue]  rounded-lg" />
+                    <input type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} className="w-full p-3 bg-[whitesmoke] shadow-sm shadow-[skyblue]  rounded-lg" />
+                    <input type="number" placeholder="Stock Quantity" value={stock} onChange={(e) => setStock(e.target.value)} className="w-full p-3 bg-[whitesmoke] shadow-sm shadow-[skyblue]  rounded-lg" />
+                    <textarea placeholder="Product Description" value={description} onChange={(e) => setDescription(e.target.value)} className="w-full p-3  bg-[whitesmoke] shadow-sm shadow-[skyblue] rounded-lg" />
+                    <button type="submit" className={`w-full py-3 rounded-lg text-white font-semibold transition-all ${loading ? "bg-[gray] cursor-not-allowed" : "bg-[green] hover:bg-[red]"}`} disabled={loading}>
+                        {loading ? "Uploading..." : "Upload Product"}
+                    </button>
+                </form>
+
+                {message && <p className="mt-4 text-center text-[gray] font-medium">{message}</p>}
+            </div>
         </div>
     );
 };

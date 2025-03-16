@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { Route, Routes, useNavigate } from "react-router-dom"
 
 // Components
+import ConfirmationModal from "./components/Common/ConfirmationModal.jsx"
+import LogoutModal from "./components/Common/LogoutModal.jsx"
 import Navbar from "./components/Common/Navbar.jsx"
 import OpenRoute from "./components/core/Auth/OpenRoute.jsx"
 import PrivateRoute from "./components/core/Auth/PrivateRoute.jsx"
@@ -17,24 +19,25 @@ import Instructor from "./components/core/Dashboard/Instructor.jsx"
 import MyCourses from "./components/core/Dashboard/MyCourses.jsx"
 import MyProfile from "./components/core/Dashboard/MyProfile.jsx"
 import Settings from "./components/core/Dashboard/Settings"
-import ConfirmationModal from "./components/Common/ConfirmationModal.jsx"
-import LogoutModal from "./components/Common/LogoutModal.jsx"
 import VideoDetails from "./components/core/ViewCourse/VideoDetails.jsx"
 import About from "./pages/About.jsx"
 import Catalog from "./pages/Catalog.jsx"
 import Contact from "./pages/Contact.jsx"
-import ProductUploader from "./components/core/Dashboard/ProductUpload/ProductUploader.jsx"
-import Marketplace from "./pages/Marketplace.jsx"
 import CourseDetails from "./pages/CourseDetails.jsx"
 import Dashboard from "./pages/Dashboard.jsx"
 import Error from "./pages/Error.jsx"
 import ForgotPassword from "./pages/ForgotPassword.jsx"
+import SellerStore from "./components/core/Dashboard/sellerstore/SellerStore.jsx"
+import PurchasedProducts from "./components/core/Dashboard/Buyerorders/PurchasedProducts.jsx"
+import UpdateProduct from "./components/core/UpdateProducts.jsx"
 // Pages
 import Home from "./pages/Home.jsx"
 import Login from "./pages/Login.jsx"
 import Signup from "./pages/Signup.jsx"
 import UpdatePassword from "./pages/UpdatePassword.jsx"
 import VerifyEmail from "./pages/VerifyEmail.jsx"
+import ProductUploader from "./components/core/Dashboard/ProductUpload/ProductUploader.jsx"
+import Marketplace from "./pages/Marketplace.jsx"
 import ViewCourse from "./pages/ViewCourse.jsx"
 import { getUserDetails } from "./services/operations/profileAPI.js"
 import { ACCOUNT_TYPE } from "./utils/constants.js"
@@ -113,7 +116,6 @@ function App() {
         >
           {/* Route for all users */}
           <Route path="dashboard/my-profile" element={<MyProfile />} />
-          <Route path="/dashboard/productupload" element={<ProductUploader />} />
           <Route path="dashboard/Settings" element={<Settings />} />
           <Route path="dashboard/confirm" element={<ConfirmationModal />} />
           <Route path="dashboard/logout" element={<LogoutModal />} />
@@ -139,6 +141,14 @@ function App() {
               <Route path="/dashboard/cart" element={<Cart />} />
             </>
           )}
+          {/* Route only for Sellers */}
+          {user?.accountType === ACCOUNT_TYPE.SELLER && (
+            <>
+              <Route path="/dashboard/productupload" element={<ProductUploader />} />
+              <Route path="/dashboard/sellerStore" element={<SellerStore />} />
+            </>
+          )}
+          <Route path="/purchased-products" element={<PurchasedProducts />} />
           <Route path="dashboard/settings" element={<Settings />} />
         </Route>
 
