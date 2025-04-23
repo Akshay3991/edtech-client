@@ -183,7 +183,7 @@ function Home() {
                 </a>
               </div>
               <div className="absolute text-center w-[100%] bottom-[5px] sm:bottom-[8px]">
-                <h1 className="font-sans font-black text-[10px] sm:text-[18px] md:text-[20px]">Akshay</h1>
+                <h1 className="font-sans font-black text-[10px] sm:text-[18px] md:text-[20px]">Maryam</h1>
                 <h2 className="text-[#FF1949] text-[8px] sm:text-[16px] md:text-[18px] font-extrabold">Web Developer</h2>
               </div>
             </div>
@@ -205,7 +205,7 @@ function Home() {
               </div>
               <div className="absolute text-center w-[100%] bottom-[5px] sm:bottom-[8px]">
                 <h1 className="font-sans font-black text-[10px] sm:text-[18px] md:text-[20px]">Akshay</h1>
-                <h2 className="text-[#FF1949] text-[8px] sm:text-[16px] md:text-[18px] font-extrabold">Web Developer</h2>
+                <h2 className="text-[#FF1949] text-[8px] sm:text-[16px] md:text-[18px] font-extrabold">Android Developer</h2>
               </div>
             </div>
           </div>
