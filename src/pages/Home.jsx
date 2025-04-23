@@ -11,7 +11,7 @@ import Banner from "../assets/Images/banner.mp4"
 import Discoverimg from "../assets/Images/boxoffice.png"
 import Maryam from "../assets/Images/Maryam_d.jpeg"
 import Akshay from "../assets/Images/Akshay_d.jpg"
-import Jhonny from "../assets/Images/jhonny_d.jpeg"
+// import Jhonny from "../assets/Images/jhonny_d.jpeg"
 // Component Imports
 import Footer from "../components/Common/Footer.jsx"
 import ReviewSlider from "../components/Common/ReviewSlider.jsx"
@@ -185,27 +185,6 @@ function Home() {
               <div className="absolute text-center w-[100%] bottom-[5px] sm:bottom-[8px]">
                 <h1 className="font-sans font-black text-[10px] sm:text-[18px] md:text-[20px]">Maryam</h1>
                 <h2 className="text-[#FF1949] text-[8px] sm:text-[16px] md:text-[18px] font-extrabold">Web Developer</h2>
-              </div>
-            </div>
-          </div>
-          <div className="relative group w-[8rem] h-[8rem] sm:w-[18rem] sm:h-[18rem] md:w-[23rem] md:h-[23rem] overflow-visible flex rounded-[20px] bg-[whitesmoke] shadow-xl shadow-black">
-            <div className="w-full h-full rounded-[20px] bg-[white] transform overflow-hidden group-hover:rotate-6 transition-all duration-300 ease-in-out relative">
-              <img
-                src={Jhonny}
-                className="w-[80%] h-[80%] mx-auto transform group-hover:translate-y-[-70px] transition-transform duration-300 ease-in-out"
-                alt=""
-              />
-              <div className="absolute text-[40px] bottom-[40px] sm:bottom-[80px] left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out flex space-x-2">
-                <a href="https://github.com/realjoni17">
-                  <FaGithubSquare className="text-[24px] sm:text-[32px] md:text-[40px]" />
-                </a>
-                <a href="https://www.linkedin.com/mwlite/in/joni-sharma-121a56168">
-                  <FaLinkedin className="text-[#36a5e6] text-[24px] sm:text-[32px] md:text-[40px]" />
-                </a>
-              </div>
-              <div className="absolute text-center w-[100%] bottom-[5px] sm:bottom-[8px]">
-                <h1 className="font-sans font-black text-[10px] sm:text-[18px] md:text-[20px]">Akshay</h1>
-                <h2 className="text-[#FF1949] text-[8px] sm:text-[16px] md:text-[18px] font-extrabold">Android Developer</h2>
               </div>
             </div>
           </div>
