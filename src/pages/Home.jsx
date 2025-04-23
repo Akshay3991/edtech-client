@@ -10,7 +10,7 @@ import { FaGithubSquare } from "react-icons/fa";
 import Banner from "../assets/Images/banner.mp4"
 import Discoverimg from "../assets/Images/boxoffice.png"
 import Maryam from "../assets/Images/Maryam_d.jpeg"
-import Akshay from "../assets/Images/Akshay_d.jpg"
+import Akshay from "../assets/Images/Akshay_d.jpeg"
 // import Jhonny from "../assets/Images/jhonny_d.jpeg"
 // Component Imports
 import Footer from "../components/Common/Footer.jsx"
