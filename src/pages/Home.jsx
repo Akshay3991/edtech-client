@@ -9,6 +9,9 @@ import { FaGithubSquare } from "react-icons/fa";
 // Image and Video Import
 import Banner from "../assets/Images/banner.mp4"
 import Discoverimg from "../assets/Images/boxoffice.png"
+import Maryam from "../assets/Images/Maryam_d.jpeg"
+import Akshay from "../assets/Images/Akshay_d.jpg"
+import Jhonny from "../assets/Images/jhonny_d.jpeg"
 // Component Imports
 import Footer from "../components/Common/Footer.jsx"
 import ReviewSlider from "../components/Common/ReviewSlider.jsx"
@@ -145,15 +148,15 @@ function Home() {
           <div className="relative group w-[8rem] h-[8rem] sm:w-[18rem] sm:h-[18rem] md:w-[23rem] md:h-[23rem] overflow-visible flex rounded-[20px] bg-[whitesmoke] shadow-xl shadow-black">
             <div className="w-full h-full rounded-[20px] bg-[white] transform overflow-hidden group-hover:rotate-6 transition-all duration-300 ease-in-out relative">
               <img
-                src={Discoverimg}
+                src={Akshay}
                 className="w-[80%] h-[80%] mx-auto transform group-hover:translate-y-[-70px] transition-transform duration-300 ease-in-out"
                 alt=""
               />
               <div className="absolute text-[40px] bottom-[40px] sm:bottom-[80px] left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out flex space-x-2">
-                <a href="https://github.com/">
+                <a href="https://github.com/Akshay3991">
                   <FaGithubSquare className="text-[24px] sm:text-[32px] md:text-[40px]" />
                 </a>
-                <a href="https://linkedin.com">
+                <a href="https://www.linkedin.com/in/akshay-sabharwal-a10465254/">
                   <FaLinkedin className="text-[#36a5e6] text-[24px] sm:text-[32px] md:text-[40px]" />
                 </a>
               </div>
@@ -167,7 +170,7 @@ function Home() {
           <div className="relative group w-[8rem] h-[8rem] sm:w-[18rem] sm:h-[18rem] md:w-[23rem] md:h-[23rem] overflow-visible flex rounded-[20px] bg-[whitesmoke] shadow-xl shadow-black">
             <div className="w-full h-full rounded-[20px] bg-[white] transform overflow-hidden group-hover:rotate-6 transition-all duration-300 ease-in-out relative">
               <img
-                src={Discoverimg}
+                src={Maryam}
                 className="w-[80%] h-[80%] mx-auto transform group-hover:translate-y-[-70px] transition-transform duration-300 ease-in-out"
                 alt=""
               />
@@ -175,7 +178,7 @@ function Home() {
                 <a href="https://github.com/">
                   <FaGithubSquare className="text-[24px] sm:text-[32px] md:text-[40px]" />
                 </a>
-                <a href="https://linkedin.com">
+                <a href="https://www.linkedin.com/in/maryammeer/">
                   <FaLinkedin className="text-[#36a5e6] text-[24px] sm:text-[32px] md:text-[40px]" />
                 </a>
               </div>
@@ -188,15 +191,15 @@ function Home() {
           <div className="relative group w-[8rem] h-[8rem] sm:w-[18rem] sm:h-[18rem] md:w-[23rem] md:h-[23rem] overflow-visible flex rounded-[20px] bg-[whitesmoke] shadow-xl shadow-black">
             <div className="w-full h-full rounded-[20px] bg-[white] transform overflow-hidden group-hover:rotate-6 transition-all duration-300 ease-in-out relative">
               <img
-                src={Discoverimg}
+                src={Jhonny}
                 className="w-[80%] h-[80%] mx-auto transform group-hover:translate-y-[-70px] transition-transform duration-300 ease-in-out"
                 alt=""
               />
               <div className="absolute text-[40px] bottom-[40px] sm:bottom-[80px] left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out flex space-x-2">
-                <a href="https://github.com/">
+                <a href="https://github.com/realjoni17">
                   <FaGithubSquare className="text-[24px] sm:text-[32px] md:text-[40px]" />
                 </a>
-                <a href="https://linkedin.com">
+                <a href="https://www.linkedin.com/mwlite/in/joni-sharma-121a56168">
                   <FaLinkedin className="text-[#36a5e6] text-[24px] sm:text-[32px] md:text-[40px]" />
                 </a>
               </div>
