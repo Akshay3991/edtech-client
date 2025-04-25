@@ -40,14 +40,14 @@ const TrendingCategories = () => {
                 <div className="flex gap-2">
                     <button
                         onClick={() => navigate(-1)}
-                        className="flex items-center gap-1 px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded-full text-sm"
+                        className="flex items-center gap-1 px-3 py-1 bg-[#0a0a0a] hover:bg-[gray] rounded-full text-sm"
                     >
                         <FaArrowCircleLeft className="w-4 h-4" />
                         Back
                     </button>
                     <button
                         onClick={() => navigate(1)}
-                        className="flex items-center gap-1 px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded-full text-sm"
+                        className="flex items-center gap-1 px-3 py-1 bg-[#0d0d0d] hover:bg-[gray] rounded-full text-sm"
                     >
                         Forward
                         <FaArrowCircleRight className="w-4 h-4" />
@@ -56,14 +56,14 @@ const TrendingCategories = () => {
                 <div className="flex gap-2">
                     <button
                         onClick={() => navigate("/")}
-                        className="flex items-center gap-1 px-3 py-1 bg-blue-200 hover:bg-blue-300 rounded-full text-sm"
+                        className="flex items-center gap-1 px-3 py-1 bg-[grey] hover:bg-[#03030d] rounded-full text-sm"
                     >
                         <SiHomebridge className="w-4 h-4" />
                         Home
                     </button>
                     <button
                         onClick={clearVideos}
-                        className="flex items-center gap-1 px-3 py-1 bg-red-200 hover:bg-red-300 rounded-full text-sm"
+                        className="flex items-center gap-1 px-3 py-1 bg-[#f9681b] hover:bg-[red] rounded-full text-sm"
                     >
                         Clear
                     </button>
