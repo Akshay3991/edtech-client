@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-
-const API_KEY = "AIzaSyBhUVSglPuAa-XteurjJu1yqn2yG2i8Hcc"; // Replace with your actual YouTube API key
+import { useNavigate } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react"; // Optional icons
+import { FaArrowCircleLeft } from "react-icons/fa";
+import { FaArrowCircleRight } from "react-icons/fa";
+import { IoMdRefreshCircle } from "react-icons/io";
+import { TbHomeFilled } from "react-icons/tb";
+const API_KEY = "AIzaSyBhUVSglPuAa-XteurjJu1yqn2yG2i8Hcc"; // Replace with your API key
 
 const categories = [
     { label: "Web Development", color: "#105f3e" },
@@ -13,6 +18,7 @@ const categories = [
 
 const TrendingCategories = () => {
     const [videos, setVideos] = useState([]);
+    const navigate = useNavigate();
 
     const fetchVideos = async (query) => {
         const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&q=${encodeURIComponent(
@@ -28,12 +34,52 @@ const TrendingCategories = () => {
         }
     };
 
+    const clearVideos = () => setVideos([]);
+
     return (
-        <div className="w-full bg-[whitesmoke]">
+        <div className="w-full bg-[whitesmoke] min-h-screen pb-10">
+            {/* 🔁 Navigation & Actions */}
+            <div className="flex flex-wrap gap-2 justify-between items-center px-4 py-3">
+                <div className="flex gap-2">
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="flex items-center gap-1 px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded-full text-sm"
+                    >
+                        <FaArrowCircleLeft className="w-4 h-4" />
+                        Back
+                    </button>
+                    <button
+                        onClick={() => navigate(1)}
+                        className="flex items-center gap-1 px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded-full text-sm"
+                    >
+                        Forward
+                        <FaArrowCircleRight className="w-4 h-4" />
+                    </button>
+                </div>
+                <div className="flex gap-2">
+                    <button
+                        onClick={() => navigate("/")}
+                        className="flex items-center gap-1 px-3 py-1 bg-blue-200 hover:bg-blue-300 rounded-full text-sm"
+                    >
+                        <TbHomeFilled className="w-4 h-4" />
+                        Home
+                    </button>
+                    <button
+                        onClick={clearVideos}
+                        className="flex items-center gap-1 px-3 py-1 bg-red-200 hover:bg-red-300 rounded-full text-sm"
+                    >
+                        <XCircle className="w-4 h-4" />
+                        Clear
+                    </button>
+                </div>
+            </div>
+
+            {/* 🔠 Header */}
             <h1 className="text-center text-[1.4rem] sm:text-[2.2rem] md:text-[2.4rem] lg:text-[2.5rem] font-sans font-black p-[30px_0px]">
                 Browse Trending Categories
             </h1>
 
+            {/* 🔘 Categories */}
             <div className="w-[90%] mx-auto gap-2 flex flex-col sm:flex-row md:flex-row lg:flex-row overflow-scroll custom-scrollbar">
                 {categories.map((cat, idx) => (
                     <div
@@ -49,7 +95,7 @@ const TrendingCategories = () => {
                 ))}
             </div>
 
-            {/* Video Grid */}
+            {/* 🎥 Videos */}
             <div className="w-[90%] mx-auto mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {videos.map((video) => (
                     <div key={video.id.videoId} className="bg-white shadow-md rounded-lg overflow-hidden">
