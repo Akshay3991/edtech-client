@@ -34,6 +34,8 @@ import UpdateProduct from "./components/core/UpdateProducts.jsx"
 import Home from "./pages/Home.jsx"
 import Login from "./pages/Login.jsx"
 import Signup from "./pages/Signup.jsx"
+import YouTubeVideos from "./pages/YouTubeVideos.jsx"
+import TrendingCategories from "./pages/TrendingCategories.jsx"
 import UpdatePassword from "./pages/UpdatePassword.jsx"
 import VerifyEmail from "./pages/VerifyEmail.jsx"
 import ProductUploader from "./components/core/Dashboard/ProductUpload/ProductUploader.jsx"
@@ -63,6 +65,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/marketplace" element={<Marketplace />} />
+        <Route path="/yvideos" element={<YouTubeVideos />} />
+        <Route path="//trending/:category" element={<TrendingCategories />} />
         <Route path="courses/:courseId" element={<CourseDetails />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
         {/* Open Route - for Only Non Logged in User */}

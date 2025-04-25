@@ -1,33 +1,35 @@
 // Icons Import
-import { FaArrowRight, FaLinkedin } from "react-icons/fa"
-import { Link } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { HiLightBulb } from "react-icons/hi";
-import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { FaGithubSquare } from "react-icons/fa";
+import React, { useEffect, useRef, useState } from "react";
+import { FaChevronLeft, FaChevronRight, FaGithubSquare, FaLinkedin } from "react-icons/fa";
+import { HiLightBulb } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+
 // Image and Video Import
-import Banner from "../assets/Images/banner.mp4"
-import Discoverimg from "../assets/Images/boxoffice.png"
-import Maryam from "../assets/Images/Maryam_d.jpeg"
-import Akshay from "../assets/Images/Akshay_d.jpeg"
+import Akshay from "../assets/Images/Akshay_d.jpeg";
+import Banner from "../assets/Images/banner.mp4";
+import Maryam from "../assets/Images/Maryam_d.jpeg";
 // import Jhonny from "../assets/Images/jhonny_d.jpeg"
 // Component Imports
-import Footer from "../components/Common/Footer.jsx"
-import ReviewSlider from "../components/Common/ReviewSlider.jsx"
-import CodeBlocks from "../components/core/HomePage/CodeBlocks.jsx"
-import ExploreMore from "../components/core/HomePage/ExploreMore.jsx"
-import InstructorSection from "../components/core/HomePage/InstructorSection.jsx"
-import TimelineSection from "../components/core/HomePage/Timeline.jsx"
+import Footer from "../components/Common/Footer.jsx";
+import ReviewSlider from "../components/Common/ReviewSlider.jsx";
+import CodeBlocks from "../components/core/HomePage/CodeBlocks.jsx";
+import ExploreMore from "../components/core/HomePage/ExploreMore.jsx";
+import InstructorSection from "../components/core/HomePage/InstructorSection.jsx";
+import TimelineSection from "../components/core/HomePage/Timeline.jsx";
 
 function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const navigate = useNavigate();
 
   const toggleBright = () => {
     setIsDarkMode(!isDarkMode);
 
   };
 
+  const handletClick = (category) => {
+    navigate(`/trending/${encodeURIComponent(category)}`);
+  };
   return (
     <div className="flex-col pt-[20px]">
       <div className="w-full relative h-[30rem] sm:h-[40rem] md:h-[50rem] lg:h-[55rem]">
@@ -123,24 +125,25 @@ function Home() {
       <div className="w-full  bg-[whitesmoke]">
         <h1 className="text-center text-[1.4rem] sm:text-[2.2rem] md:text-[2.4rem] lg:text-[2.5rem] font-sans font-black  p-[30px_0px]">Browse Trending Categories</h1>
         <div className="w-[90%] mx-auto gap-2 flex flex-col sm:flex-row md:flex-row lg:flex-row overflow-scroll custom-scrollbar">
-          <div className="w-full h-full p-[8px]  rounded-[20px] bg-[#105f3e]">
-            <h2 className="text-[white] text-[20px] font-bold text-center font-sans">Web Development</h2>
-          </div>
-          <div className="w-full  h-full p-[8px] rounded-[20px] bg-[#FEA116]">
-            <h2 className="text-[white] text-[20px]  text-center font-bold font-sans">Photography</h2>
-          </div>
-          <div className="w-full h-full p-[8px]  rounded-[20px] bg-[#3D64FF]">
-            <h2 className="text-[white] text-[20px] font-bold text-center  font-sans">Graphics Design</h2>
-          </div>
-          <div className="w-full h-full p-[8px]   rounded-[20px] bg-[#1CB5A3]">
-            <h2 className="text-[white] text-[20px] font-bold  text-center font-sans">Web Language</h2>
-          </div>
-          <div className="w-full h-full p-[8px]  rounded-[20px] bg-[#3D64FF]">
-            <h2 className="text-[white] text-[20px] font-bold  text-center font-sans">Health & Fitness</h2>
-          </div>
-          <div className="w-full h-full p-[8px]  rounded-[20px] bg-[#9764DF]">
-            <h2 className="text-[white] text-[20px] font-bold  text-center font-sans">Business Studies</h2>
-          </div>
+          {[
+            { name: "Web Development", color: "#105f3e" },
+            { name: "Photography", color: "#FEA116" },
+            { name: "Graphics Design", color: "#3D64FF" },
+            { name: "Web Language", color: "#1CB5A3" },
+            { name: "Health & Fitness", color: "#3D64FF" },
+            { name: "Business Studies", color: "#9764DF" },
+          ].map((cat, i) => (
+            <div
+              key={i}
+              className="w-full h-full p-[8px] rounded-[20px] cursor-pointer"
+              onClick={() => handletClick(cat.name)}
+              style={{ backgroundColor: cat.color }}
+            >
+              <h2 className="text-[white] text-[20px] font-bold text-center font-sans">
+                {cat.name}
+              </h2>
+            </div>
+          ))}
         </div>
 
         <h1 className="text-center text-[1.4rem] sm:text-[2.2rem] md:text-[2.4rem] lg:text-[2.5rem] font-sans font-black p-[30px_0px]">Team Of Developers</h1>
