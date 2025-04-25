@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-import { TbHomeFilled } from "react-icons/tb";
+import { SiHomebridge } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
 const API_KEY = "AIzaSyBhUVSglPuAa-XteurjJu1yqn2yG2i8Hcc"; // Replace with your API key
 
@@ -58,7 +58,7 @@ const TrendingCategories = () => {
                         onClick={() => navigate("/")}
                         className="flex items-center gap-1 px-3 py-1 bg-blue-200 hover:bg-blue-300 rounded-full text-sm"
                     >
-                        <TbHomeFilled className="w-4 h-4" />
+                        <SiHomebridge className="w-4 h-4" />
                         Home
                     </button>
                     <button
