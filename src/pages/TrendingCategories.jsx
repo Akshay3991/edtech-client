@@ -65,7 +65,6 @@ const TrendingCategories = () => {
                         onClick={clearVideos}
                         className="flex items-center gap-1 px-3 py-1 bg-red-200 hover:bg-red-300 rounded-full text-sm"
                     >
-                        <XCircle className="w-4 h-4" />
                         Clear
                     </button>
                 </div>
