@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react"; // Optional icons
-import { FaArrowCircleLeft } from "react-icons/fa";
-import { FaArrowCircleRight } from "react-icons/fa";
-import { IoMdRefreshCircle } from "react-icons/io";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import { TbHomeFilled } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 const API_KEY = "AIzaSyBhUVSglPuAa-XteurjJu1yqn2yG2i8Hcc"; // Replace with your API key
 
 const categories = [
