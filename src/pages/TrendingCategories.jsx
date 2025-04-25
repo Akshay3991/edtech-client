@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const API_KEY = "YOUR_API_KEY"; // Replace with your actual YouTube API key
+const API_KEY = "AIzaSyBhUVSglPuAa-XteurjJu1yqn2yG2i8Hcc"; // Replace with your actual YouTube API key
 
 const categories = [
     { label: "Web Development", color: "#105f3e" },
