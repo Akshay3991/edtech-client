@@ -36,7 +36,7 @@ const TrendingCategories = () => {
     return (
         <div className="w-full bg-[whitesmoke] min-h-screen pb-10">
             {/* 🔁 Navigation & Actions */}
-            <div className="flex flex-wrap gap-2 bg-[white] justify-between items-center px-4 py-3 mt-[200px]">
+            <div className="flex flex-wrap gap-2 bg-[white] justify-between items-center px-4 py-3 mt-[60px]">
                 <div className="flex gap-2 text-[white]">
                     <button
                         onClick={() => navigate(-1)}
@@ -53,7 +53,7 @@ const TrendingCategories = () => {
                         <FaArrowCircleRight className="w-4 h-4" />
                     </button>
                 </div>
-                <div className="flex gap-2 text-[black]">
+                <div className="flex gap-2 text-[#f9f6f6]">
                     <button
                         onClick={() => navigate("/")}
                         className="flex items-center gap-1 px-3 py-1 bg-[grey] hover:bg-[#03030d] rounded-full text-sm"
