@@ -34,10 +34,10 @@ const TrendingCategories = () => {
     const clearVideos = () => setVideos([]);
 
     return (
-        <div className="w-full bg-[whitesmoke] min-h-screen mt-[200px]">
+        <div className="w-full bg-[whitesmoke] min-h-screen pb-3">
             {/* 🔁 Navigation & Actions */}
-            <div className="flex flex-wrap gap-2 bg-[blue] justify-between items-center px-4 py-3">
-                <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2 bg-[white] justify-between items-center px-4 py-3">
+                <div className="flex gap-2 text-[white]">
                     <button
                         onClick={() => navigate(-1)}
                         className="flex items-center gap-1 px-3 py-1 bg-[#0a0a0a] hover:bg-[gray] rounded-full text-sm"
@@ -53,7 +53,7 @@ const TrendingCategories = () => {
                         <FaArrowCircleRight className="w-4 h-4" />
                     </button>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 text-[black]">
                     <button
                         onClick={() => navigate("/")}
                         className="flex items-center gap-1 px-3 py-1 bg-[grey] hover:bg-[#03030d] rounded-full text-sm"
@@ -63,7 +63,7 @@ const TrendingCategories = () => {
                     </button>
                     <button
                         onClick={clearVideos}
-                        className="flex items-center gap-1 px-3 py-1 bg-[#f9681b] hover:bg-[red] rounded-full text-sm"
+                        className="flex items-center gap-1 px-3 py-1 bg-[black] hover:bg-[grey] rounded-full text-sm"
                     >
                         Clear
                     </button>
