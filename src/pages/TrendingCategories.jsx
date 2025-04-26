@@ -36,7 +36,7 @@ const TrendingCategories = () => {
     return (
         <div className="w-full bg-[whitesmoke] min-h-screen pb-10">
             {/* 🔁 Navigation & Actions */}
-            <div className="flex flex-wrap gap-2 bg-[white] justify-between items-center px-4 mt-10">
+            <div className="flex flex-wrap gap-2 bg-[white] justify-between items-center px-4 py-3 mt-[200px]">
                 <div className="flex gap-2 text-[white]">
                     <button
                         onClick={() => navigate(-1)}
