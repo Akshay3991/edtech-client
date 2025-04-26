@@ -34,7 +34,7 @@ const TrendingCategories = () => {
     const clearVideos = () => setVideos([]);
 
     return (
-        <div className="w-full bg-[whitesmoke] min-h-screen pb-3">
+        <div className="w-full bg-[whitesmoke] min-h-screen p-3">
             {/* 🔁 Navigation & Actions */}
             <div className="flex flex-wrap gap-2 bg-[white] justify-between items-center px-4 py-3">
                 <div className="flex gap-2 text-[white]">
