@@ -34,7 +34,7 @@ const TrendingCategories = () => {
     const clearVideos = () => setVideos([]);
 
     return (
-        <div className="w-full bg-[whitesmoke] min-h-screen pb-10">
+        <div className="w-full bg-[whitesmoke] min-h-screen mt-[200px]">
             {/* 🔁 Navigation & Actions */}
             <div className="flex flex-wrap gap-2 bg-[blue] justify-between items-center px-4 py-3">
                 <div className="flex gap-2">
@@ -70,10 +70,7 @@ const TrendingCategories = () => {
                 </div>
             </div>
 
-            {/* 🔠 Header */}
-            <h1 className="text-center text-[1.4rem] sm:text-[2.2rem] md:text-[2.4rem] lg:text-[2.5rem] font-sans font-black p-[30px_0px]">
-                Browse Trending Categories
-            </h1>
+
 
             {/* 🔘 Categories */}
             <div className="w-[90%] mx-auto gap-2 flex flex-col sm:flex-row md:flex-row lg:flex-row overflow-scroll custom-scrollbar">
