@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import { SiHomebridge } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
-const API_KEY = "AIzaSyBhUVSglPuAa-XteurjJu1yqn2yG2i8Hcc"; // Replace with your API key
+const API_KEY = process.env.API_KEY; // Replace with your API key
 
-const categories = [
-    { label: "Web Development", color: "#105f3e" },
-    { label: "Photography", color: "#FEA116" },
-    { label: "Graphics Design", color: "#3D64FF" },
-    { label: "Web Language", color: "#1CB5A3" },
-    { label: "Health & Fitness", color: "#3D64FF" },
-    { label: "Business Studies", color: "#9764DF" },
-];
+// const categories = [
+//     { label: "Web Development", color: "#105f3e" },
+//     { label: "Photography", color: "#FEA116" },
+//     { label: "Graphics Design", color: "#3D64FF" },
+//     { label: "Web Language", color: "#1CB5A3" },
+//     { label: "Health & Fitness", color: "#3D64FF" },
+//     { label: "Business Studies", color: "#9764DF" },
+// ];
 
 const TrendingCategories = () => {
     const [videos, setVideos] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
 
     const fetchVideos = async (query) => {
@@ -32,6 +33,13 @@ const TrendingCategories = () => {
     };
 
     const clearVideos = () => setVideos([]);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim() !== "") {
+            fetchVideos(searchQuery);
+        }
+    };
 
     return (
         <div className="w-full bg-[whitesmoke] min-h-screen pb-10">
@@ -70,10 +78,27 @@ const TrendingCategories = () => {
                 </div>
             </div>
 
-
+            {/* 🔎 Search Bar */}
+            <div className="w-[90%] mx-auto my-6">
+                <form onSubmit={handleSearch} className="flex gap-2">
+                    <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder="Search videos..."
+                        className="flex-1 p-2 rounded-full border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    <button
+                        type="submit"
+                        className="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-full"
+                    >
+                        Search
+                    </button>
+                </form>
+            </div>
 
             {/* 🔘 Categories */}
-            <div className="w-[90%] mx-auto gap-2 flex flex-col sm:flex-row md:flex-row lg:flex-row overflow-scroll custom-scrollbar">
+            {/* <div className="w-[90%] mx-auto gap-2 flex flex-col sm:flex-row md:flex-row lg:flex-row overflow-scroll custom-scrollbar">
                 {categories.map((cat, idx) => (
                     <div
                         key={idx}
@@ -86,7 +111,7 @@ const TrendingCategories = () => {
                         </h2>
                     </div>
                 ))}
-            </div>
+            </div> */}
 
             {/* 🎥 Videos */}
             <div className="w-[90%] mx-auto mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
