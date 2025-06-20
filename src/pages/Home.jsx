@@ -227,8 +227,7 @@ const NewsComponent = () => {
   const scrollSpeed = 0.5; // Adjust speed
 
   const API_KEY = process.env.REACT_APP_GUARDIAN_API_KEY;
-  //const URL = `https://content.guardianapis.com/search?api-key=29c22464-e81b-4fc1-a176-decdaabc7f45&section=technology|education&show-fields=thumbnail,headline,trailText`;
-  const URL =  'https://content.guardianapis.com/search?api-key=29c22464-e81b-4fc1-a176-decdaabc7f45';
+  const URL = `https://content.guardianapis.com/search?api-key=29c22464-e81b-4fc1-a176-decdaabc7f45&section=technology|education&show-fields=thumbnail,headline,trailText`;
   useEffect(() => {
     axios
       .get(URL)
